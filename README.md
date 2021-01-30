@@ -1,9 +1,7 @@
 ## Welcome to GitHub Pages of M Jimenez, Multidisclipinary Senior Scientist II
 ### Biochemistry/Molecular Biology/Cellular Biology/Chemistry/Data Analytics/Data Science
 <br>
-<img src="https://github.com/leodavinci1452/leodavinci1452.github.io/blob/main/Adelphi.png"> 
-<img src="https://github.com/leodavinci1452/leodavinci1452.github.io/blob/main/Villanova.png">
-<img src="https://github.com/leodavinci1452/leodavinci1452.github.io/blob/main/BU.png">
+[[https://github.com/leodavinci1452/leodavinci1452.github.io/blob/main/Adelphi.png]] [[https://github.com/leodavinci1452/leodavinci1452.github.io/blob/main/Villanova.png]][[https://github.com/leodavinci1452/leodavinci1452.github.io/blob/main/BU.png]]
 <br>
 Degrees,
 Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry, Boston University
