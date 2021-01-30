@@ -2,9 +2,9 @@
 ### Biochemistry/Molecular Biology/Cellular Biology/Chemistry/Data Analytics/Data Science
 <br>
 ### Degrees,
-#### Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry, Boston University
-#### Masters of Science, M.S., Chemistry, Villanova University
-#### Bachelors of Science, B.S., Biochemistry
+#### Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry, Boston University (Massachusetts)
+#### Masters of Science, M.S., Chemistry, Villanova University (Pennsylvania)
+#### Bachelors of Science, B.S., Biochemistry, Adelphi University (New York)
 <br>
 ### Professional Certifications, 2021-Present
 <br>
