@@ -3,9 +3,7 @@
 <br>
 ### Degrees,
 #### Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry, Boston University
-<br>
 #### Masters of Science, M.S., Chemistry, Villanova University
-<br>
 #### Bachelors of Science, B.S., Biochemistry
 <br>
 ### Professional Certifications, 2021-Present
