@@ -2,9 +2,9 @@
 ### Biochemistry/Molecular Biology/Cellular Biology/Chemistry/Data Analytics/Data Science
 <br>
 ### Degrees,
-#### Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry, Boston University (Massachusetts)
-#### Masters of Science, M.S., Chemistry, Villanova University (Pennsylvania)
-#### Bachelors of Science, B.S., Biochemistry, Adelphi University (New York)
+##### Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry, Boston University (Massachusetts)
+##### Masters of Science, M.S., Chemistry, Villanova University (Pennsylvania)
+##### Bachelors of Science, B.S., Biochemistry, Adelphi University (New York)
 <br>
 ### Professional Certifications, 2021-Present
 <br>
@@ -22,7 +22,7 @@
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="a9cb3f68-d47d-4691-8f2e-c84202568ac0" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="06a5d985-a0db-4241-b44d-81e1d49b2fdc" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="89d5bfd9-67cc-42e9-8877-4e6a02fe9952" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
-<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="625ad882-0899-4d2c-a747-e7843f9f0079" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8309ddfc-c0c1-47cf-b402-208f488a8069" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="1beb7566-1982-43ac-99e3-7cdc3a60bdb9" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="625ad882-0899-4d2c-a747-e7843f9f0079" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 
