@@ -31,7 +31,7 @@
 ### Employment,
 #### Novartis Institutes for BioMedical Research, Cambridge, Massachusetts, 2009-Present
 ##### Chemical Biology and Therapeutics / Chemical Genetics
-###### <i>Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology.</i>
+###### <i> Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology. </i>
 ##### Chemical Biology and Therapeutics / Early Translational Biology
 ###### <i>Co-creating discovery projects across all NIBR porfolio space, collaboratively define the strategy, distill lessentials of programs and building experimental systems to address key scientific questions. Exploratory phase engagement with diseased areas to transfer complex models to high throughput screens, biochemical, cellular,high content and genetic screening.</i>
 ##### Chemical Biology and Therapeutics / Discovery Biology I
