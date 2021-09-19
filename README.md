@@ -6,6 +6,20 @@
 ##### Masters of Science, M.S., Chemistry, Villanova University (Pennsylvania)
 ##### Bachelors of Science, B.S., Biochemistry, Adelphi University (New York)
 <br>
+### Employment,
+#### Novartis Institutes for BioMedical Research, Cambridge, Massachusetts, 2009-Present
+##### Chemical Biology and Therapeutics / Chemical Genetics
+###### Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology.
+##### Chemical Biology and Therapeutics / Early Translational Biology
+###### Co-creating discovery projects across all NIBR porfolio space, collaboratively define the strategy, distill lessentials of programs and building experimental systems to address key scientific questions. Exploratory phase engagement with diseased areas to transfer complex models to high throughput screens, biochemical, cellular,high content and genetic screening.
+##### Chemical Biology and Therapeutics / Discovery Biology I
+###### Catalyzing the discovery of proprietary targets and paths to drug discovery combining genetics, low molecular weight tools and physiologically relevant models, detailed expertise in key areas of biology and target classes. Primary focus in Neuroscience programs: Parkinson's and Alzheimer's diseases.
+##### Center for Proteomic Chemistry / Integrated Lead Discovery and Screening Sciences
+###### In close collaboration with NIBR partners, to discover leads for NIBR targets or pathways; bring contributions to target identification and lead optimization. Primary focus: microRNA biogenesis and Non-alcoholic Steatohepatitis (NASH).
+##### Center for Proteomic Chemistry / Facilitated Access to Screening Technologies (FAST) Laboratory
+###### Support all disease areas within NIBR partners with proof of concept projects and focused screens. Primary consultant for internal and external collaborations not limited to assay development, miniaturization up to 1536w, automation adaptation and screening over 150K compounds in various HTS phases utilizing biochemical, cellular and high content screening technologies.
+
+<br>
 ### Professional Certifications, 2021-Present
 <br>
 ### Specialist Certifications, 2020-2021
