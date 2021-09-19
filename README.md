@@ -29,7 +29,7 @@
 
 <br>
 ### Employment,
-#### Novartis Institutes for BioMedical Research, Cambridge, Massachusetts, 2009-Present
+#### Novartis Institutes for BioMedical Research, Cambridge, Massachusetts, 2013-Present
 ##### Chemical Biology and Therapeutics / Chemical Genetics
 ###### <i> Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology. </i>
 ##### Chemical Biology and Therapeutics / Early Translational Biology
@@ -40,6 +40,9 @@
 ###### <i>In close collaboration with NIBR partners, to discover leads for NIBR targets or pathways; bring contributions to target identification and lead optimization. Primary focus: microRNA biogenesis and Non-alcoholic Steatohepatitis (NASH).</i>
 ##### Center for Proteomic Chemistry / Facilitated Access to Screening Technologies (FAST) Laboratory
 ###### <i>Support all disease areas within NIBR partners with proof of concept projects and focused screens. Primary consultant for internal and external collaborations not limited to assay development, miniaturization up to 1536w, automation adaptation and screening over 150K compounds in various HTS phases utilizing biochemical, cellular and high content screening technologies.</i>
+#### Novartis Vaccines and Diagnostics, Cambridge, Massachusetts, 2009-2013
+##### Bacterial Serology
+###### <i> Assay development and screening of pre-clinical and clinical trials for bacterial vaccine candidates via various correlate of protection assays. R&D project on innate immunity and vaccine work on meningococcal vaccine, Bexsero; various assist to the viral vaccines group influenza, Yellow Fever and cytomegalovirus programs.
 
 
 
