@@ -34,7 +34,7 @@
 ##### Chemical Biology and Therapeutics / Chemical Genetics
 ###### <i> Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology. </i>
 ##### Chemical Biology and Therapeutics / Early Translational Biology
-###### <i>Co-creating discovery projects across all NIBR porfolio space, collaboratively define the strategy, distill lessentials of programs and building experimental systems to address key scientific questions. Exploratory phase engagement with diseased areas to transfer complex models to high throughput screens, biochemical, cellular,high content and genetic screening.</i>
+###### <i>Co-creating discovery projects across all NIBR porfolio space, collaboratively define the strategy, distill essentials of programs and building experimental systems to address key scientific questions. Exploratory phase engagement with diseased areas to transfer complex models to high throughput screens, biochemical, cellular,high content and genetic screening.</i>
 ##### Chemical Biology and Therapeutics / Discovery Biology I
 ###### <i>Catalyzing the discovery of proprietary targets and paths to drug discovery combining genetics, low molecular weight tools and physiologically relevant models, detailed expertise in key areas of biology and target classes. Primary focus in Neuroscience programs: Parkinson's and Alzheimer's diseases.</i>
 ##### Center for Proteomic Chemistry / Integrated Lead Discovery and Screening Sciences
