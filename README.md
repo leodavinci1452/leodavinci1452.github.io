@@ -13,6 +13,7 @@
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="955346c1-56e9-4abf-8da3-0dc56e986693" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="467d0769-99da-49c9-82dd-d10640147170" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="c096b76a-d631-4df8-9ae9-52919a24bde8" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="faf9753d-6c02-4c00-8d8b-370f24708831" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 <br>
 ### IBM Digital Badges, 2020-Present
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fa0748e0-4ef8-47e2-a9a9-4502d7c6821a" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
@@ -27,6 +28,7 @@
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8309ddfc-c0c1-47cf-b402-208f488a8069" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="1beb7566-1982-43ac-99e3-7cdc3a60bdb9" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="625ad882-0899-4d2c-a747-e7843f9f0079" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="6539a8b6-cd8b-4c61-9cc4-990cff087182" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 
 <br>
 ### Employment,
