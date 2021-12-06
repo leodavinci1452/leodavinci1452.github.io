@@ -29,6 +29,7 @@
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="1beb7566-1982-43ac-99e3-7cdc3a60bdb9" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="625ad882-0899-4d2c-a747-e7843f9f0079" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="6539a8b6-cd8b-4c61-9cc4-990cff087182" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="12a30dbd-78e8-4a16-b9fa-f65e7a56437d" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 
 <br>
 ### Employment,
