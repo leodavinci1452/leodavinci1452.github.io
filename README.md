@@ -7,7 +7,8 @@
 ##### Bachelors of Science, B.S., Biochemistry, Adelphi University (New York)
 <br>
 ### Professional Certifications, 2021-Present
-##### Google Data Analytics, Professional Certification, 2021
+##### Google Data Analytics, Professional Certification, 2022
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="9adf1feb-bd2d-428f-a6ff-f3cc3978cb36" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 <br>
 ### Specialist Certifications, 2020-2021
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="955346c1-56e9-4abf-8da3-0dc56e986693" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
