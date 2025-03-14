@@ -34,7 +34,10 @@
 
 <br>
 ### Employment,
-#### Novartis Institutes for BioMedical Research, Cambridge, Massachusetts, 2013-Present
+#### Pfizer, Inc., Cambridge, Massachusetts, 2022-Present
+##### Internal Medicine Research Unit (IMRU)/ Cardio-Renal
+
+#### Novartis Institutes for BioMedical Research, Cambridge, Massachusetts, 2013-2022
 ##### Chemical Biology and Therapeutics / Chemical Genetics
 ###### <i> Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology. </i>
 ##### Chemical Biology and Therapeutics / Early Translational Biology
