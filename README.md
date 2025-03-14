@@ -53,7 +53,19 @@
 ##### Bacterial Serology
 ###### <i> Assay development and screening of pre-clinical and clinical trials for bacterial vaccine candidates via various correlate of protection assays. R&D project on innate immunity and vaccine work on meningococcal vaccine, Bexsero; various assist to the viral vaccines group influenza, Yellow Fever and cytomegalovirus programs.
 
-
-
+<table>
+  <tr>
+    <th>Focus</th>
+    <th>Aquired Skills</th>
+  </tr>
+  <tr>
+    <td>Molecular Biology</td>
+    <td>(Sub)cloning, (RT-q)PCR, DNA, RNA, Sequencing, Extractions, Digestions, Site-directed mutagenesis, Southern/Western(traditional and Jess/Wes)/Eastern blotting</td>
+  </tr>
+  <tr>
+    <td>Cell Biology</td>
+    <td>Bacterial and mammalian cell culture (including primary cell lines and human induced pluripotent stem cells, metabolic assays (Agilent Seahorse), in vitro transcription and translation, Fluorescence in situ hybridization</td>
+  </tr>
+</table>
 
 
