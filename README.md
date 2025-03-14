@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages of M Jimenez, Multidisclipinary Senior Scientist II 
+## Welcome to GitHub Pages of M Jimenez, Multidisclipinary Senior Scientist
 ### Biochemistry/Molecular Biology/Cellular Biology/Chemistry/Data Analytics/Data Science
 <br>
 ### Degrees,
@@ -37,9 +37,7 @@
 ### Employment,
 #### Pfizer, Inc., Cambridge, Massachusetts, 2022-Present
 ##### Internal Medicine Research Unit (IMRU)/ Porfolio Strategy/Cardio-Renal
-##### Research strategy to address the increasing global impact of the dysmetabolic state, with key focus in the areas of
-Obesity, Cardiovascular Disease, Chronic Kidney Disease, and associated indications including NASH, T2DM,
-and Cachexia.
+###### Research strategy to address the increasing global impact of the dysmetabolic state, with key focus in the areas of Obesity, Cardiovascular Disease, Chronic Kidney Disease, and associated indications including NASH, T2DM, and Cachexia.
 #### Novartis Institutes for BioMedical Research, Cambridge, Massachusetts, 2013-2022
 ##### Chemical Biology and Therapeutics / Chemical Genetics
 ###### <i> Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology. </i>
