@@ -34,7 +34,7 @@
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="12a30dbd-78e8-4a16-b9fa-f65e7a56437d" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 
 <br>
-### Employment,
+### Employment, *Survivor of the constant re-org*
 #### Pfizer, Inc., Cambridge, Massachusetts, 2022-Present
 ##### Internal Medicine Research Unit (IMRU)/ Porfolio Strategy/Cardio-Renal
 ###### Research strategy to address the increasing global impact of the dysmetabolic state, with key focus in the areas of Obesity, Cardiovascular Disease, Chronic Kidney Disease, and associated indications including NASH, T2DM, and Cachexia.
@@ -56,7 +56,7 @@
 <table>
   <tr>
     <th>Focus</th>
-    <th>Aquired Skills</th>
+    <th>Acquired Skills</th>
   </tr>
   <tr>
     <td>Molecular Biology</td>
