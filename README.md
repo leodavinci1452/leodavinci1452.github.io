@@ -38,7 +38,7 @@
   </tr>
    <tr>
     <td>Biochemistry</td>
-    <td>Protein transformations/expression/purification, antibody purifications, immunoprecipitations, chromatography (ion exchange, size exclusion, hydrophobic interactions, and affinity), SDS-PAGE (native and denaturing) and native zone (zymograms) electrophoreses</td>
+    <td>Protein transformations/expression/purification, antibody purifications, immunoprecipitations, chromatography (ion exchange, size exclusion, hydrophobic interactions, and affinity), SDS-PAGE (native and denaturing) and native zone (zymograms), and isoelectric focusing electrophoreses</td>
   </tr>
     <tr>
     <td>Enzymology/ *in vitro* Pharmacology</td>
