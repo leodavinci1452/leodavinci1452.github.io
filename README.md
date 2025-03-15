@@ -6,7 +6,7 @@
 #### Pfizer, Inc., Cambridge, Massachusetts, 2022-Present
 ##### Internal Medicine Research Unit (IMRU)/ Porfolio Strategy/Cardio-Renal
 ###### Research strategy to address the increasing global impact of the dysmetabolic state, with key focus in the areas of Obesity, Cardiovascular Disease, Chronic Kidney Disease, and associated indications including NASH, T2DM, and Cachexia.
-#### Novartis Institutes (*for BioMedical Research*), Cambridge, Massachusetts, 2013-2022
+#### Novartis Institutes (for BioMedical Research), Cambridge, Massachusetts, 2013-2022
 #### Title(s): Scientist I, II, Senior Scientist I,II
 ##### Chemical Biology and Therapeutics / Chemical Genetics
 ###### <i> Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology. </i>
@@ -41,7 +41,7 @@
     <td>Protein transformations/expression/purification, antibody purifications, immunoprecipitations, chromatography (ion exchange, size exclusion, hydrophobic interactions, and affinity), SDS-PAGE (native and denaturing) and native zone (zymograms), and isoelectric focusing electrophoreses</td>
   </tr>
     <tr>
-    <td>Enzymology/ *in vitro* Pharmacology</td>
+    <td>Enzymology/ in vitro Pharmacology</td>
     <td>Enzymatic assays, carbohydrate enzymatic reactions, protein modifications, determination of steady-state (Km and Vmax), inhibition studies, pre-steady state parameters (rate constants), chemical quench flow method (Kintek Corp. Rapid Quencher)</td>
   </tr>
  <tr>
@@ -66,7 +66,7 @@
   </tr>  
   <tr>
     <td>Vaccines</td>
-    <td>Immunoassays: ELISA, MSD and multiplex (magnetic) assays, radial immunodiffusion (RID), serum bactericidal antibody (SBA) assay and cell based neutralization assays (for *Yellow fever*), serum/plasma collection, (pre)clinical analysis for *Bexsero* meningococcal Group B Vaccine, bacteria growth and handling of *Neisseria meningitidis* and Group A *Streptococcus*. </td>
+    <td>Immunoassays: ELISA, MSD and multiplex (magnetic) assays, radial immunodiffusion (RID), serum bactericidal antibody (SBA) assay and cell based neutralization assays (for Yellow fever), serum/plasma collection, (pre)clinical analysis for Bexsero meningococcal Group B Vaccine, bacteria growth and handling of Neisseria meningitidis and Group A Streptococcus. </td>
   </tr>
 <tr>
     <td>Biohazard Levels</td>
