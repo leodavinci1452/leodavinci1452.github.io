@@ -2,7 +2,7 @@
 ### Biochemistry/Molecular Biology/Cellular Biology/Chemistry/Data Analytics/Data Science
 
 <br>
-### Employment, *Survivor of the constant re-org*
+### Employment, 
 #### Pfizer, Inc., Cambridge, Massachusetts, 2022-Present
 ##### Internal Medicine Research Unit (IMRU)/ Porfolio Strategy/Cardio-Renal
 ###### Research strategy to address the increasing global impact of the dysmetabolic state, with key focus in the areas of Obesity, Cardiovascular Disease, Chronic Kidney Disease, and associated indications including NASH, T2DM, and Cachexia.
