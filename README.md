@@ -34,9 +34,44 @@
   </tr>
   <tr>
     <td>Cell Biology</td>
-    <td>Bacterial and mammalian cell culture (including primary cell lines and human induced pluripotent stem cells, metabolic assays (Agilent Seahorse), in vitro transcription and translation, Fluorescence in situ hybridization</td>
+    <td>Bacterial and mammalian cell culture (including primary cell lines and human induced pluripotent stem cells, glucose uptake assay, metabolic assays (Agilent Seahorse), in vitro transcription and translation, Fluorescence in situ hybridization FISH</td>
   </tr>
-</table>
+   <tr>
+    <td>Biochemistry</td>
+    <td>Protein transformations/expression/purification, antibody purifications, immunoprecipitations, chromatography (ion exchange, size exclusion, hydrophobic interactions, and affinity), SDS-PAGE (native and denaturing) and native zone (zymograms) electrophoreses</td>
+  </tr>
+    <tr>
+    <td>Enzymology/ *in vitro* Pharmacology</td>
+    <td>Enzymatic assays, carbohydrate enzymatic reactions, protein modifications, determination of steady-state (Km and Vmax), inhibition studies, pre-steady state parameters (rate constants), chemical quench flow method (Kintek Corp. Rapid Quencher)</td>
+  </tr>
+ <tr>
+    <td>Microscopy</td>
+    <td>Confocal/Fluorescence microscopy for high content imaging: live and fixed modalities: Carl Zeiss confocal microsocope, GE Healthcare Life Sciences IN Cell Analyzer 6000, PerkinElmer Opera Phenix (Plus), Agilent Cytation 5/10, and Yokogawa CellVoyager CV7000/8000.  Electron microscopy (EM), sample preparation and transmission and scanning.</td>
+  </tr>
+   <tr>
+    <td>Isotopes</td>
+    <td>Extensive experience in working with Carbon-14, Phosphorus-32 and Sulfur-35</td>
+  </tr>
+   <tr>
+    <td>Biohazard Levels</td>
+    <td>Experimentation at BSL-1, BSL-2 and BSL-3</td>
+  </tr>
+ <tr>
+    <td>Computer skills</td>
+    <td>MS Office, Spotfire/Tableau, Electronic notebooks (IDBS SmartBook/e-Workbook, Revvity Signals), Molecular modeling (Pymol, "O", PDB Swiss Viewer), Kinetic modeling ProFit and Graphpad Prism, Molecular Biology software: VectorNTI/DNASTAR/Lasergene, Sequencher, CodonCode Aligner, SnapGene </td>
+  </tr>
+ <tr>
+    <td>Screening Systems and Instruments</td>
+    <td>Tecan robotic systems, Hamilton Automated Liquid Handling STAR system, Beckman BioMek i7, BioRad Bio-Plex Luminex system, Cybio CyBi/FELIX, Perkin Elmer Flexdrop Matrix, Integra Viaflo 3847, Thermo liquid handling dispensers:CombiNL, multidrop combi, GNF systems bottlevalve washer/dispenser, Biotek multiflow, EL405, EL406. Compound dispensers: Labcyte/Beckman ECHO 555/650, EDC Biosystems ATS, Tecan D300, and pintool. Readers: Viewlux, Pherastar, Envision/Nexus. Automation software: Thermo Scientific POLARA scheduling, HighRES Bio Cellario Scheduler, ThermoFisher Momentum Automnation scheduling, NOVARTIS HELIOS, GeneData Screener.</td>
+  </tr>  
+  <tr>
+    <td>Vaccines</td>
+    <td>Immunoassays: ELISA, MSD and multiplex (magnetic) assays, radial immunodiffusion (RID), serum bactericidal antibody (SBA) assay and cell based neutralization assays (for *Yellow fever*), serum/plasma collection, (pre)clinical analysis for *Bexsero* meningococcal Group B Vaccine, bacteria growth and handling of *Neisseria meningitidis* and Group A *Streptococcus*. </td>
+  </tr>
+<tr>
+    <td>Biohazard Levels</td>
+    <td>Experimentation at BSL-1, BSL-2 and BSL-3</td>
+  </tr></table>
 
 <br>
 ### Degrees,
