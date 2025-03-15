@@ -80,9 +80,32 @@
 Dominick Casalena; Sabine Dietmann; Douglas Auld; Rudolf Jaenisch; Thorold Theunissen. Probing the
 signaling requirements for naïve human pluripotency by high-throughput chemical screening. Cell Reports 2021 Jun
 15;35(11):109233.</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ul><br>
+  <li>Okesli-Armlovich A, Gupta A, Jimenez M, Auld D, Liu Q, Bassik MC, Khosla C. Discovery of small molecule
+inhibitors of human uridine-cytidine kinase 2 by high-throughput screening. Bioorg Med Chem Lett. 2019 Sep 12;
+29(18):2559-2564.</li>
+  <li>Yu-ki Tahara, Douglas Auld, Debin Ji, Andrew Beharry, Anna M. Kietrys, David M. Wilson, Marta Jimenez,
+Daniel King, Zachary Nguyen, Eric T. Kool. Potent and Selective Inhibitors of 8-Oxoguanine DNA Glycosylase
+(OGG1). Journal of the American Chemical Society. 2018 Feb14; 140(6):2105-2114.</li>
+  <li>Douglas S. Auld, Marta Jimenez, Scott Busby, Kiki Chen, Kimberley Yue, Scott Bowes, Greg Wendel, Thomas
+Smith, and Ji-Hu Zhang. Matrix-Based Activity Pattern Classification as a Novel Method for the Characterization of
+Enzyme Inhibitors Derived from High-Throughput Screening. Journal of Bimolecular Screening. 2016, Vol.
+21(1075-1089).</li>
+  <li>Douglas S. Auld, Christopher J, Davis, Marta Jimenez, Sinead Knight, Jonathon P. Orme. Examining Ligand-
+based Stabilization of Proteins in Cells with MEK1 Kinase Inhibitors. ASSAY and Development Technologies
+(ISSN 1540-658X) June 2015 Volume 13, Issue 5:266-76.</li>
+ <li>Diao, S., Ho, P.-i., Jimenez, M., Auld, D. & Zuo, J. (2018). A high-throughput screen identifies POU4F3
+transcriptional agonists for hair cell regeneration in mammalian cochleae. [Poster]. Association for Research
+in Otolaryngology 41st Annual Midwinter Meeting, Feb 10th 2018, San Diego, CA.</li>
+<li>Marta Jimenez, George Santos, Marzia Giuliani, Mariagrazia Pizza, Rino Rappuoli and John Donnelly.
+Development of a plasma complement source for use in the meningococcal serum bactericidal assay. 2nd Annual
+Cambridge Vaccines Research Conference of Novartis Vaccines and Diagnostics, Cambridge, MA USA.
+September 2011. Abstract 032. (Poster & Oral Presentation)</li>  
+<li>Marta Jimenez, George Santos, Marzia Giuliani, Mariagrazia Pizza, Rino Rappuoli and John Donnelly.
+Development of a plasma complement source for use in the meningococcal serum bactericidal assay. Research Days of
+Novartis Vaccines & Diagnostics, Siena, Italy. July 2011. Abstract 044. (Poster & Oral Presentation)</li>  
+</ul>
+<br>
+  
 ### Degrees,
 ##### PhD Candidate, Chemistry and Chemical Biology, Northeastern University (Massachusetts)
 ##### Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry, Boston University (Massachusetts)
