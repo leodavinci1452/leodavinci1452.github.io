@@ -6,7 +6,7 @@
 #### Pfizer, Inc., Cambridge, Massachusetts, 2022-Present
 ##### Internal Medicine Research Unit (IMRU)/ Porfolio Strategy/Cardio-Renal
 ###### Research strategy to address the increasing global impact of the dysmetabolic state, with key focus in the areas of Obesity, Cardiovascular Disease, Chronic Kidney Disease, and associated indications including NASH, T2DM, and Cachexia.
-#### Novartis Institutes for BioMedical Research, Cambridge, Massachusetts, 2013-2022
+#### Novartis Institutes (*for BioMedical Research*), Cambridge, Massachusetts, 2013-2022
 #### Title(s): Scientist I, II, Senior Scientist I,II
 ##### Chemical Biology and Therapeutics / Chemical Genetics
 ###### <i> Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology. </i>
@@ -74,6 +74,15 @@
   </tr></table>
 
 <br>
+###Publications and Presentations
+<ul>
+  <li>Shafqat Ali Khan; Kyoung-mi Park; Laura Fischer; Chen Dong; Tenzin Lungjangwa; Marta Jimenez;
+Dominick Casalena; Sabine Dietmann; Douglas Auld; Rudolf Jaenisch; Thorold Theunissen. Probing the
+signaling requirements for naïve human pluripotency by high-throughput chemical screening. Cell Reports 2021 Jun
+15;35(11):109233.</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul><br>
 ### Degrees,
 ##### PhD Candidate, Chemistry and Chemical Biology, Northeastern University (Massachusetts)
 ##### Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry, Boston University (Massachusetts)
