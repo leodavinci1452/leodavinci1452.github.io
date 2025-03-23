@@ -42,7 +42,7 @@
   </tr>
     <tr>
     <td>Enzymology/ in vitro Pharmacology</td>
-    <td>Enzymatic assays, carbohydrate enzymatic reactions, protein modifications, determination of steady-state (Km and Vmax), inhibition studies, pre-steady state parameters (rate constants), chemical quench flow method (Kintek Corp. Rapid Quencher)</td>
+    <td>Enzymatic assays, carbohydrate enzymatic reactions, protein modifications, determination of steady-state (Km and Vmax), inhibition studies, pre-steady state parameters (rate constants), chemical quench flow method (Kintek Corp. Rapid Quencher).  Cell viability, proliferation, functional assays, cell based assays, biochemical assays.  Processing of in vivo samples for assay development, target validation, cAMP assays (GPCRs).</td>
   </tr>
  <tr>
     <td>Microscopy</td>
@@ -62,7 +62,7 @@
   </tr>
  <tr>
     <td>Screening Systems and Instruments</td>
-    <td>Tecan robotic systems, Hamilton Automated Liquid Handling STAR system, Beckman BioMek i7, BioRad Bio-Plex Luminex system, Cybio CyBi/FELIX, Perkin Elmer Flexdrop Matrix, Integra Viaflo 3847, Thermo liquid handling dispensers:CombiNL, multidrop combi, GNF systems bottlevalve washer/dispenser, Biotek multiflow, EL405, EL406. Compound dispensers: Labcyte/Beckman ECHO 555/650, EDC Biosystems ATS, Tecan D300, and pintool. Readers: Viewlux, Pherastar, Envision/Nexus. Automation software: Thermo Scientific POLARA scheduling, HighRES Bio Cellario Scheduler, ThermoFisher Momentum Automnation scheduling, NOVARTIS HELIOS, GeneData Screener.</td>
+    <td>Tecan robotic systems, Hamilton Automated Liquid Handling STAR system, Beckman BioMek i7, BioRad Bio-Plex Luminex system, Cybio CyBi/FELIX, Perkin Elmer Flexdrop Matrix, Integra Viaflo 3847, Thermo liquid handling dispensers:CombiNL, multidrop combi, GNF systems bottlevalve washer/dispenser, Biotek multiflow, EL405, EL406. Compound dispensers: Labcyte/Beckman ECHO 555/650, EDC Biosystems ATS, Tecan D300, and pintool. Western blotting: Protein Simple/Biotechne Wes/Jess, Licor Odyssey imagers, BioRad ChemiDoc, Amersham ImageQuant800. RT-qPCR: Thermofisher QuantStudio systems. RNA/DNA extraction: Promega Maxwell 48, etc. Readers: Viewlux, Pherastar, Envision/Nexus. Automation software: Thermo Scientific POLARA scheduling, HighRES Bio Cellario Scheduler, ThermoFisher Momentum Automnation scheduling, NOVARTIS HELIOS, GeneData Screener.</td>
   </tr>  
   <tr>
     <td>Vaccines</td>
