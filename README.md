@@ -107,7 +107,7 @@ Novartis Vaccines & Diagnostics, Siena, Italy. July 2011. Abstract 044. (Poster 
 <br>
   
 ### Degrees,
-##### PhD Candidate, Chemistry and Chemical Biology, Northeastern University (Massachusetts)
+##### PhD Candidate (Industry Track), Chemistry and Chemical Biology, Northeastern University (Massachusetts)
 ##### Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry, Boston University (Massachusetts)
 ##### Masters of Science, M.S., Chemistry, Villanova University (Pennsylvania)
 ##### Bachelors of Science, B.S., Biochemistry, Adelphi University (New York)
