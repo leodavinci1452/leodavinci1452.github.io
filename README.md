@@ -115,7 +115,8 @@ Novartis Vaccines & Diagnostics, Siena, Italy. July 2011. Abstract 044. (Poster 
 ### Professional Certifications, 2021-Present
 ##### Google Data Analytics, Professional Certification, 2022
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="9adf1feb-bd2d-428f-a6ff-f3cc3978cb36" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-<br>
+[
+](https://www.linkedin.com/learning/certificates/599c14917d96755f0c835616b9d0f046fcaf852960d83ad064c01d29118f00b3?trk=share_certificate)<br>
 ### Specialist Certifications, 2020-2021
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="955346c1-56e9-4abf-8da3-0dc56e986693" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
 <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="467d0769-99da-49c9-82dd-d10640147170" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
