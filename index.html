@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Jimenez - Multidisciplinary Senior Scientist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .header .linkedin {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .header .linkedin a {
+            color: #667eea;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .header .linkedin a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .job {
+            margin-bottom: 30px;
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(102, 126, 234, 0.05);
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .job:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+
+        .job h3 {
+            font-size: 1.4rem;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .job .company {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .job .period {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .job .description {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .expertise-area {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background: rgba(102, 126, 234, 0.05);
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-area:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+
+        .expertise-area h3 {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .publications {
+            counter-reset: publication-counter;
+        }
+
+        .publication {
+            counter-increment: publication-counter;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(118, 75, 162, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+            position: relative;
+        }
+
+        .publication::before {
+            content: counter(publication-counter);
+            position: absolute;
+            left: -15px;
+            top: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .publication-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            margin-left: 25px;
+        }
+
+        .publication-authors {
+            color: #666;
+            margin-left: 25px;
+            line-height: 1.6;
+        }
+
+        .certifications-link {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .certifications-link p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .cert-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cert-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .skills-tags {
+                justify-content: center;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>M. Jimenez</h1>
+            <p class="subtitle">Multidisciplinary Senior Scientist</p>
+            <p class="linkedin"><a href="https://www.linkedin.com/in/leodavinci1452/" target="_blank" rel="noopener noreferrer">linkedin.com/in/leodavinci1452</a></p>
+            <div class="skills-tags">
+                <span class="skill-tag">Biochemistry</span>
+                <span class="skill-tag">Molecular Biology</span>
+                <span class="skill-tag">Cellular Biology</span>
+                <span class="skill-tag">Chemistry</span>
+                <span class="skill-tag">Data Analytics</span>
+                <span class="skill-tag">Data Science</span>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="job">
+                <h3>Senior Scientist</h3>
+                <div class="company">Pfizer, Inc., Cambridge, Massachusetts</div>
+                <div class="period">2022 - Present</div>
+                <div class="description">
+                    <strong>Internal Medicine Research Unit (IMRU) / Portfolio Strategy/Cardio-Renal:</strong><br>
+                    Research strategy to address the increasing global impact of the dysmetabolic state, with key focus in the areas of Obesity, Cardiovascular Disease, Chronic Kidney Disease, and associated indications including NASH, T2DM, and Cachexia.
+                </div>
+            </div>
+
+            <div class="job">
+                <h3>Scientist I, II to Senior Scientist I, II</h3>
+                <div class="company">Novartis Institutes for BioMedical Research, Cambridge, Massachusetts</div>
+                <div class="period">2013 - 2022</div>
+                <div class="description">
+                    <strong>Chemical Biology and Therapeutics / Chemical Genetics:</strong><br>
+                    Scouting, evaluating and deploying emerging methods and technologies to identify novel first-in-class mechanisms, creating collaboratively early target and drug discovery and drug discovery programs with a strong grasp of the fundamentals of Chemical Biology.<br><br>
+                    
+                    <strong>Chemical Biology and Therapeutics / Early Translational Biology:</strong><br>
+                    Co-creating discovery projects across all NIBR portfolio space, collaboratively define the strategy, distill essentials of programs and building experimental systems to address key scientific questions. Exploratory phase engagement with diseased areas to transfer complex models to high throughput screens, biochemical, cellular, high content and genetic screening.<br><br>
+                    
+                    <strong>Chemical Biology and Therapeutics / Discovery Biology I:</strong><br>
+                    Catalyzing the discovery of proprietary targets and paths to drug discovery combining genetics, low molecular weight tools and physiologically relevant models, detailed expertise in key areas of biology and target classes. Primary focus in Neuroscience programs: Parkinson's and Alzheimer's diseases.<br><br>
+                    
+                    <strong>Center for Proteomic Chemistry / Integrated Lead Discovery and Screening Sciences:</strong><br>
+                    In close collaboration with NIBR partners, to discover leads for NIBR targets or pathways; bring contributions to target identification and lead optimization. Primary focus: microRNA biogenesis and Non-alcoholic Steatohepatitis (NASH).<br><br>
+                    
+                    <strong>Center for Proteomic Chemistry / Facilitated Access to Screening Technologies (FAST) Laboratory:</strong><br>
+                    Support all disease areas within NIBR partners with proof of concept projects and focused screens. Primary consultant for internal and external collaborations not limited to assay development, miniaturization up to 1536w, automation adaptation and screening over 150K compounds in various HTS phases utilizing biochemical, cellular and high content screening technologies.
+                </div>
+            </div>
+
+            <div class="job">
+                <h3>Scientific Associate II</h3>
+                <div class="company">Novartis Vaccines and Diagnostics, Cambridge, Massachusetts</div>
+                <div class="period">2009 - 2013</div>
+                <div class="description">
+                    Bacterial Serology specialist responsible for assay development and screening of pre-clinical and clinical trials for bacterial vaccine candidates. R&D project work on innate immunity and vaccine development for meningococcal vaccine (Bexsero®), with additional support for viral vaccines group including influenza, Yellow Fever and cytomegalovirus programs.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Professional Certifications</h2>
+            <div class="certifications-link">
+                <p>View my complete professional certifications and credentials.</p>
+                <a href="certifications.html" class="cert-button">View Certifications →</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technical Expertise</h2>
+            
+            <div class="expertise-area">
+                <h3>Molecular Biology</h3>
+                <div class="description">
+                    (Sub)cloning, (RT-q)PCR, DNA, RNA, Sequencing, Extractions, Digestions, Site-directed mutagenesis, Southern/Western(traditional and Jess/Wes)/Eastern blotting
+                </div>
+            </div>
+
+            <div class="expertise-area">
+                <h3>Cell Biology</h3>
+                <div class="description">
+                    Bacterial and mammalian cell culture (including primary cell lines and human induced pluripotent stem cells), glucose uptake assay, metabolic assays (Agilent Seahorse), in vitro transcription and translation, Fluorescence in situ hybridization FISH
+                </div>
+            </div>
+
+            <div class="expertise-area">
+                <h3>Biochemistry</h3>
+                <div class="description">
+                    Protein transformations/expression/purification, antibody purifications, immunoprecipitations, chromatography (ion exchange, size exclusion, hydrophobic interactions, and affinity), SDS-PAGE (native and denaturing) and native zone (zymograms), and isoelectric focusing electrophoreses
+                </div>
+            </div>
+
+            <div class="expertise-area">
+                <h3>Enzymology / in vitro Pharmacology</h3>
+                <div class="description">
+                    Enzymatic assays, carbohydrate enzymatic reactions, protein modifications, determination of steady-state (Km and Vmax), inhibition studies, pre-steady state parameters (rate constants), chemical quench flow method (Kintek Corp. Rapid Quencher). Cell viability, proliferation, functional assays, cell based assays, biochemical assays. Processing of in vivo samples for assay development, target validation, cAMP assays (GPCRs).
+                </div>
+            </div>
+
+            <div class="expertise-area">
+                <h3>Microscopy</h3>
+                <div class="description">
+                    Confocal/Fluorescence microscopy for high content imaging: live and fixed modalities: Carl Zeiss confocal microscope, GE Healthcare Life Sciences IN Cell Analyzer 6000, PerkinElmer Opera Phenix (Plus), Agilent Cytation 5/10, and Yokogawa CellVoyager CV7000/8000. Electron microscopy (EM), sample preparation and transmission and scanning.
+                </div>
+            </div>
+
+            <div class="expertise-area">
+                <h3>Isotopes</h3>
+                <div class="description">
+                    Extensive experience in working with Carbon-14, Phosphorus-32 and Sulfur-35
+                </div>
+            </div>
+
+            <div class="expertise-area">
+                <h3>Biohazard Levels</h3>
+                <div class="description">
+                    Experimentation at BSL-1, BSL-2 and BSL-3
+                </div>
+            </div>
+
+            <div class="expertise-area">
+                <h3>Computer Skills</h3>
+                <div class="description">
+                    MS Office, Spotfire/Tableau, Electronic notebooks (IDBS SmartBook/e-Workbook, Revvity Signals), Molecular modeling (PyMOL, "O", PDB Swiss Viewer), Kinetic modeling ProFit and GraphPad Prism, Molecular Biology software: VectorNTI/DNASTAR/Lasergene, Sequencher, CodonCode Aligner, SnapGene
+                </div>
+            </div>
+
+            <div class="expertise-area">
+                <h3>Screening Systems and Instruments</h3>
+                <div class="description">
+                    Tecan robotic systems, Hamilton Automated Liquid Handling STAR system, Beckman BioMek i7, BioRad Bio-Plex Luminex system, Cybio CyBi/FELIX, Perkin Elmer Flexdrop Matrix, Integra Viaflo 3847, Thermo liquid handling dispensers: CombiNL, multidrop combi, GNF systems bottlevalve washer/dispenser, Biotek multiflow, EL405, EL406. Compound dispensers: Labcyte/Beckman ECHO 555/650, EDC Biosystems ATS, Tecan D300, and pintool. Western blotting: Protein Simple/Biotechne Wes/Jess, Licor Odyssey imagers, BioRad ChemiDoc, Amersham ImageQuant800. RT-qPCR: Thermofisher QuantStudio systems. RNA/DNA extraction: Promega Maxwell 48, etc. Readers: Viewlux, Pherastar, Envision/Nexus. Automation software: Thermo Scientific POLARA scheduling, HighRES Bio Cellario Scheduler, ThermoFisher Momentum Automation scheduling, NOVARTIS HELIOS, GeneData Screener.
+                </div>
+            </div>
+
+            <div class="expertise-area">
+                <h3>Vaccines</h3>
+                <div class="description">
+                    Immunoassays: ELISA, MSD and multiplex (magnetic) assays, radial immunodiffusion (RID), serum bactericidal antibody (SBA) assay and cell based neutralization assays (for Yellow fever), serum/plasma collection, (pre)clinical analysis for Bexsero® meningococcal Group B Vaccine, bacteria growth and handling of Neisseria meningitidis and Group A Streptococcus.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Publications & Presentations</h2>
+            <div class="publications">
+                <div class="publication">
+                    <div class="publication-title">Probing the signaling requirements for naïve human pluripotency by high-throughput chemical screening</div>
+                    <div class="publication-authors">Shafqat Ali Khan; Kyoung-mi Park; Laura Fischer; Chen Dong; Tenzin Lungjangwa; <strong>Marta Jimenez</strong>; Dominick Casalena; Sabine Dietmann; Douglas Auld; Rudolf Jaenisch; Thorold Theunissen. <em>Cell Reports</em> 2021 Jun 15;35(11):109233.</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title">Discovery of small molecule inhibitors of human uridine-cytidine kinase 2 by high-throughput screening</div>
+                    <div class="publication-authors">Okesli-Armlovich A, Gupta A, <strong>Jimenez M</strong>, Auld D, Liu Q, Bassik MC, Khosla C. <em>Bioorg Med Chem Lett.</em> 2019 Sep 12; 29(18):2559-2564.</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title">Potent and Selective Inhibitors of 8-Oxoguanine DNA Glycosylase (OGG1)</div>
+                    <div class="publication-authors">Yu-ki Tahara, Douglas Auld, Debin Ji, Andrew Beharry, Anna M. Kietrys, David M. Wilson, <strong>Marta Jimenez</strong>, Daniel King, Zachary Nguyen, Eric T. Kool. <em>Journal of the American Chemical Society.</em> 2018 Feb14; 140(6):2105-2114.</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title">Matrix-Based Activity Pattern Classification as a Novel Method for the Characterization of Enzyme Inhibitors Derived from High-Throughput Screening</div>
+                    <div class="publication-authors">Douglas S. Auld, <strong>Marta Jimenez</strong>, Scott Busby, Kiki Chen, Kimberley Yue, Scott Bowes, Greg Wendel, Thomas Smith, and Ji-Hu Zhang. <em>Journal of Bimolecular Screening.</em> 2016, Vol. 21(1075-1089).</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title">Examining Ligand-based Stabilization of Proteins in Cells with MEK1 Kinase Inhibitors</div>
+                    <div class="publication-authors">Douglas S. Auld, Christopher J, Davis, <strong>Marta Jimenez</strong>, Sinead Knight, Jonathon P. Orme. <em>ASSAY and Development Technologies</em> June 2015 Volume 13, Issue 5:266-76.</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Scroll to top functionality
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
