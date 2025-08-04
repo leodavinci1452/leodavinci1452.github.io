@@ -3,619 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Certifications - M. Jimenez</title>
+    <title>Test Page - M. Jimenez</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
             min-height: 100vh;
         }
-
+        
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
         }
-
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header .subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .back-button {
-            display: inline-block;
-            background: rgba(102, 126, 234, 0.1);
-            color: #667eea;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: rgba(102, 126, 234, 0.2);
-            transform: translateY(-2px);
-        }
-
+        
         .section {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
         }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
         }
-
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 25px;
-            color: #333;
-            position: relative;
-            display: inline-block;
+        
+        h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
         }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        .certification {
-            margin-bottom: 25px;
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(102, 126, 234, 0.05);
-            border-left: 4px solid #667eea;
-            transition: all 0.3s ease;
-        }
-
-        .certification:hover {
+        
+        .cert-item {
             background: rgba(102, 126, 234, 0.1);
-            transform: translateX(5px);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
         }
-
+        
         .cert-name {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #667eea;
-            margin-bottom: 8px;
-        }
-
-        .cert-issuer {
-            font-size: 1.1rem;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .cert-date {
-            color: #666;
-            font-style: italic;
             margin-bottom: 10px;
-        }
-
-        .cert-description {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .cert-status {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 10px;
-        }
-
-        .active {
-            background: rgba(76, 175, 80, 0.1);
-            color: #4CAF50;
-        }
-
-        .expired {
-            background: rgba(244, 67, 54, 0.1);
-            color: #F44336;
-        }
-
-        .placeholder-text {
-            text-align: center;
-            color: #666;
-            font-style: italic;
-            padding: 40px;
-            background: rgba(102, 126, 234, 0.05);
-            border-radius: 15px;
-            border: 2px dashed #667eea;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .section {
-                padding: 20px;
-            }
-        }
-
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-circle:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-circle:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
-        }
-
-        .floating-circle:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0.5;
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-                opacity: 0.8;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-        <div class="floating-circle"></div>
-    </div>
-
     <div class="container">
-        <header class="header">
-            <h1>Professional Certifications</h1>
-            <p class="subtitle">M. Jimenez - Multidisciplinary Senior Scientist</p>
-            <a href="index.html" class="back-button">← Back to Main Page</a>
-        </header>
-
-        <section class="section">
+        <h1>Test Page - M. Jimenez</h1>
+        
+        <div class="section">
             <h2>Education</h2>
-            
-            <div class="certification">
-                <div class="cert-name">Bachelors of Science, B.S., Biochemistry and Philosophy</div>
-                <div class="cert-issuer">Adelphi University (New York)</div>
-                <div class="cert-description">
-                    Undergraduate foundation in biochemistry, combining chemistry and biology principles to understand molecular processes in living systems.
-                </div>
-                <span class="cert-status active">Completed</span>
+            <div class="cert-item">
+                <div class="cert-name">PhD Candidate, Chemistry and Chemical Biology</div>
+                <p>Northeastern University (Massachusetts)</p>
             </div>
-
-            <div class="certification">
-                <div class="cert-name">Masters of Science, M.S., Chemistry</div>
-                <div class="cert-issuer">Villanova University (Pennsylvania)</div>
-                <div class="cert-description">
-                    Graduate-level studies in chemistry with focus on analytical, organic, and physical chemistry principles, preparing for advanced research and industry applications.
-                </div>
-                <span class="cert-status active">Completed</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Masters of Arts, M.A., Molecular Biology, Cell Biology and Biochemistry</div>
-                <div class="cert-issuer">Boston University (Massachusetts)</div>
-                <div class="cert-description">
-                    Comprehensive graduate program covering advanced topics in molecular biology, cellular mechanisms, and biochemical processes with emphasis on research methodology and laboratory techniques.
-                </div>
-                <span class="cert-status active">Completed</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">PhD Candidate (Industry Track), Chemistry and Chemical Biology</div>
-                <div class="cert-issuer">Northeastern University (Massachusetts)</div>
-                <div class="cert-description">
-                    Advanced doctoral studies in Chemistry and Chemical Biology with industry focus, combining theoretical knowledge with practical applications in pharmaceutical and biotechnology sectors.
-                </div>
-                <span class="cert-status active">In Progress</span>
-            </div>
-        </section>
-
-        <section class="section">
+        </div>
+        
+        <div class="section">
             <h2>Certifications</h2>
-            
-            <h3 style="margin-bottom: 20px; color: #667eea; font-size: 1.5rem;">Professional Certificates</h3>
-            <div class="certification">
-                <div class="cert-name">Public Speaking Skills Professional Certificate by Toastmasters International</div>
-                <div class="cert-issuer">Toastmasters International</div>
-                <div class="cert-date">Completed: 2025</div>
-                <div class="cert-description">
-                    Professional certification in public speaking and communication skills, demonstrating proficiency in presentation delivery, speech organization, and effective communication techniques.
-                </div>
-                <p style="margin-top: 10px;"><a href="https://www.linkedin.com/learning/certificates/599c14917d96755f0c835616b9d0f046fcaf852960d83ad064c01d29118f00b3?trk=share_certificate" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Certificate on LinkedIn</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Statistics Foundations Professional Certificate by Wolfram Research</div>
-                <div class="cert-issuer">Wolfram Research</div>
-                <div class="cert-date">Completed: 2025</div>
-                <div class="cert-description">
-                    Professional certification covering fundamental statistical concepts, probability theory, hypothesis testing, and statistical modeling using advanced computational tools and methodologies.
-                </div>
-                <p style="margin-top: 10px;"><a href="https://www.linkedin.com/learning/certificates/c24703b633d8a59d341ca68db2ead7a9d27b79b81b91ada22ec0a013c1fb3b0a?trk=share_certificate" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Certificate on LinkedIn</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Become a Six Sigma Green Belt</div>
-                <div class="cert-issuer">LinkedIn Learning</div>
-                <div class="cert-date">Completed: 2025</div>
-                <div class="cert-description">
-                    Professional certification in Six Sigma methodology, demonstrating expertise in process improvement, quality management, statistical analysis, and project leadership for operational excellence.
-                </div>
-                <p style="margin-top: 10px;"><a href="https://www.linkedin.com/learning/certificates/1a7b2da1a0e562ce53488a15eadfde41f993615e7e352b71aa5c4709c18ce13f?trk=share_certificate" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Certificate on LinkedIn</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Become a Six Sigma Yellow Belt</div>
-                <div class="cert-issuer">LinkedIn Learning</div>
-                <div class="cert-date">Completed: 2025</div>
-                <div class="cert-description">
-                    Professional certification in foundational Six Sigma principles, demonstrating understanding of quality improvement concepts, basic statistical tools, and support for process improvement initiatives.
-                </div>
-                <p style="margin-top: 10px;"><a href="https://www.linkedin.com/learning/certificates/9e2e704af034a54e7c568e20f131dd1e37d9a7b686cada0c816c92e799b78aae?trk=share_certificate" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Certificate on LinkedIn</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
+            <div class="cert-item">
                 <div class="cert-name">Google Data Analytics Professional Certificate</div>
-                <div class="cert-issuer">Google (via Coursera)</div>
-                <div class="cert-date">Completed: 2022</div>
-                <div class="cert-description">
-                    Comprehensive program covering data analysis fundamentals, data cleaning, visualization, and analysis using tools like spreadsheets, SQL, R, and Tableau. Includes hands-on projects and real-world data analysis scenarios.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e26f15a2-9fa1-4235-9069-42bc7a603b44" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/e26f15a2-9fa1-4235-9069-42bc7a603b44" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
+                <p>Google (via Coursera) - Completed: 2022</p>
             </div>
-
-            <h3 style="margin-top: 40px; margin-bottom: 20px; color: #667eea; font-size: 1.5rem;">Specialist Certifications</h3>
-            <div class="certification">
-                <div class="cert-name">Data Science Foundations</div>
-                <div class="cert-description">
-                    Specialized professional certification demonstrating advanced expertise in specific technical domains.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="955346c1-56e9-4abf-8da3-0dc56e986693" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/955346c1-56e9-4abf-8da3-0dc56e986693" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
+            <div class="cert-item">
+                <div class="cert-name">Six Sigma Green Belt</div>
+                <p>LinkedIn Learning - Completed: 2025</p>
             </div>
-
-            <div class="certification">
-                <div class="cert-name">Artificial Intelligence Foundations Specialization</div>
-                <div class="cert-description">
-                    Additional specialized professional certification demonstrating expertise in complementary technical areas.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="c096b76a-d631-4df8-9ae9-52919a24bde8" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/c096b76a-d631-4df8-9ae9-52919a24bde8" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
+        </div>
+        
+        <div class="section">
+            <h2>Digital Badges</h2>
+            <div class="cert-item">
+                <div class="cert-name">Python for Data Science</div>
+                <p>Digital badge for Python programming skills</p>
             </div>
-
-            <div class="certification">
-                <div class="cert-name">Data Analysis & Visualization Foundations Specialization</div>
-                <div class="cert-description">
-                    Specialized certification in data analysis and visualization techniques, demonstrating advanced skills in data interpretation and presentation.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="467d0769-99da-49c9-82dd-d10640147170" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/467d0769-99da-49c9-82dd-d10640147170" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Data Science Fundamentals Specialization</div>
-                <div class="cert-description">
-                    Comprehensive certification covering fundamental principles of data science, including statistical analysis, machine learning, and data-driven decision making.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="9f601ec0-f9c7-484d-857f-48212e691261" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/9f601ec0-f9c7-484d-857f-48212e691261" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Key Technology Foundations Specialization</div>
-                <div class="cert-description">
-                    Specialized certification covering essential technology foundations and emerging technological frameworks critical for modern scientific and analytical applications.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="faf9753d-6c02-4c00-8d8b-370f24708831" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/faf9753d-6c02-4c00-8d8b-370f24708831" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <h3 style="margin-top: 40px; margin-bottom: 20px; color: #667eea; font-size: 1.5rem;">Digital Badges</h3>
-            <div class="certification">
-                <div class="cert-name">Fundamentals of Predictive Project Management</div>
-                <div class="cert-description">
-                    Digital badge demonstrating proficiency in predictive project management methodologies, planning techniques, and project lifecycle management.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="64882870-708a-4cef-b361-e59d26daa39b" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/64882870-708a-4cef-b361-e59d26daa39b" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Data Science Orientation</div>
-                <div class="cert-description">
-                    Digital badge demonstrating foundational understanding of data science principles, methodologies, and applications in professional environments.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fa0748e0-4ef8-47e2-a9a9-4502d7c6821a" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/fa0748e0-4ef8-47e2-a9a9-4502d7c6821a" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Tools for Data Science</div>
-                <div class="cert-description">
-                    Digital badge demonstrating proficiency with essential data science tools, platforms, and technologies used in data analysis and machine learning workflows.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8a292a08-b74e-4aad-96ec-758b82486ffe" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/8a292a08-b74e-4aad-96ec-758b82486ffe" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Data Science Methodology</div>
-                <div class="cert-description">
-                    Digital badge demonstrating understanding of systematic approaches to data science projects, including problem definition, data collection, analysis, and model deployment methodologies.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8ec1afe7-1704-4eec-98bc-19553a9a614b" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/8ec1afe7-1704-4eec-98bc-19553a9a614b" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Chatbot Building Essentials</div>
-                <div class="cert-description">
-                    Digital badge demonstrating proficiency in designing, developing, and deploying conversational AI systems and chatbot technologies for various applications.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="1beb7566-1982-43ac-99e3-7cdc3a60bdb9" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/1beb7566-1982-43ac-99e3-7cdc3a60bdb9" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Python for Data Science and AI</div>
-                <div class="cert-description">
-                    Digital badge demonstrating proficiency in Python programming for data science applications, machine learning, and artificial intelligence development.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="625ad882-0899-4d2c-a747-e7843f9f0079" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/625ad882-0899-4d2c-a747-e7843f9f0079" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Databases and SQL for Data Science</div>
-                <div class="cert-description">
-                    Digital badge demonstrating expertise in database management and SQL query optimization for data science applications and analytics workflows.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="89d5bfd9-67cc-42e9-8877-4e6a02fe9952" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/89d5bfd9-67cc-42e9-8877-4e6a02fe9952" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Data Analytics Essentials</div>
-                <div class="cert-description">
-                    Digital badge demonstrating foundational skills in data analytics, including statistical analysis, data interpretation, and analytical thinking for business insights.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="94255f0c-4193-4eb7-8732-f629537b9f3e" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/94255f0c-4193-4eb7-8732-f629537b9f3e" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Excel Essentials for Data Analytics</div>
-                <div class="cert-description">
-                    Digital badge demonstrating advanced Excel skills for data analysis, including pivot tables, statistical functions, and data visualization techniques.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8309ddfc-c0c1-47cf-b402-208f488a8069" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/8309ddfc-c0c1-47cf-b402-208f488a8069" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Data Visualization & Dashboard Essentials</div>
-                <div class="cert-description">
-                    Digital badge demonstrating proficiency in creating effective data visualizations and interactive dashboards for data-driven decision making and communication.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="828674cb-f12a-43d2-9b42-642ecc39ac41" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/828674cb-f12a-43d2-9b42-642ecc39ac41" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Statistics for Data Science with Python</div>
-                <div class="cert-description">
-                    Digital badge demonstrating proficiency in statistical analysis and hypothesis testing using Python for data science applications and research.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="a9cb3f68-d47d-4691-8f2e-c84202568ac0" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/a9cb3f68-d47d-4691-8f2e-c84202568ac0" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Data Analysis with Python</div>
-                <div class="cert-description">
-                    Digital badge demonstrating advanced skills in data manipulation, cleaning, and analysis using Python libraries such as pandas, NumPy, and scipy.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="06a5d985-a0db-4241-b44d-81e1d49b2fdc" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/06a5d985-a0db-4241-b44d-81e1d49b2fdc" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Data Visualization with Python</div>
-                <div class="cert-description">
-                    Digital badge demonstrating expertise in creating compelling data visualizations using Python libraries such as matplotlib, seaborn, and plotly for effective data communication.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="1e1e2fc9-61cb-4f41-bcbe-513f371df4aa" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/1e1e2fc9-61cb-4f41-bcbe-513f371df4aa" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Introduction to Cloud Computing</div>
-                <div class="cert-description">
-                    Digital badge demonstrating foundational understanding of cloud computing concepts, services, and deployment models for scalable data science applications.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="6539a8b6-cd8b-4c61-9cc4-990cff087182" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/6539a8b6-cd8b-4c61-9cc4-990cff087182" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-
-            <div class="certification">
-                <div class="cert-name">Python Project for Data Science</div>
-                <div class="cert-description">
-                    Digital badge demonstrating practical application of Python skills in real-world data science projects, including end-to-end project development and implementation.
-                </div>
-                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="12a30dbd-78e8-4a16-b9fa-f65e7a56437d" data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <p style="margin-top: 10px;"><a href="https://www.credly.com/badges/12a30dbd-78e8-4a16-b9fa-f65e7a56437d" target="_blank" rel="noopener noreferrer" style="color: #667eea; text-decoration: none; font-weight: 600;">🏆 View Digital Badge on Credly</a></p>
-                <span class="cert-status active">Active</span>
-            </div>
-        </section>
+        </div>
     </div>
-
-    <script>
-        // Add smooth scrolling and animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'all 0.6s ease';
-                observer.observe(section);
-            });
-        });
-    </script>
 </body>
 </html>
