@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -551,6 +552,20 @@
                         <option value="1536">1536-well (32×48)</option>
                     </select>
                 </div>
+                <div class="setting-item">
+                    <label for="readerFormat">Reader Format:</label>
+                    <select id="readerFormat" onchange="updateReaderFormat()">
+                        <option value="auto">Auto-Detect</option>
+                        <option value="generic">Generic (no headers)</option>
+                        <option value="generic-headers">Generic (with headers)</option>
+                        <option value="biotek">BioTek Gen5</option>
+                        <option value="tecan">Tecan Magellan</option>
+                        <option value="perkinelmer">PerkinElmer EnVision</option>
+                        <option value="molecular">Molecular Devices SoftMax</option>
+                        <option value="bmg">BMG LABTECH MARS</option>
+                        <option value="custom">Custom Format</option>
+                    </select>
+                </div>
             </div>
         </div>
         
@@ -716,6 +731,76 @@
         let convertedData = [];
         let conversionMode = 'plate-to-list';
         let currentPlateType = '384';
+        let currentReaderFormat = 'auto';
+        
+        // Plate reader format configurations
+        const readerFormats = {
+            'auto': {
+                name: 'Auto-Detect',
+                description: 'Automatically detect header format',
+                headerRows: 0,
+                headerCols: 0,
+                autoDetect: true
+            },
+            'generic': {
+                name: 'Generic (no headers)',
+                description: 'Raw data only, no row/column labels',
+                headerRows: 0,
+                headerCols: 0,
+                autoDetect: false
+            },
+            'generic-headers': {
+                name: 'Generic (with headers)',
+                description: 'Row and column headers included',
+                headerRows: 1,
+                headerCols: 1,
+                autoDetect: false
+            },
+            'biotek': {
+                name: 'BioTek Gen5',
+                description: 'BioTek plate reader export format',
+                headerRows: 2,
+                headerCols: 1,
+                skipLines: ['Plate:', 'Read Time:', 'Reader Serial Number:'],
+                autoDetect: false
+            },
+            'tecan': {
+                name: 'Tecan Magellan',
+                description: 'Tecan plate reader export format',
+                headerRows: 1,
+                headerCols: 2,
+                autoDetect: false
+            },
+            'perkinelmer': {
+                name: 'PerkinElmer EnVision',
+                description: 'EnVision plate reader export format',
+                headerRows: 1,
+                headerCols: 1,
+                autoDetect: false
+            },
+            'molecular': {
+                name: 'Molecular Devices SoftMax',
+                description: 'SoftMax Pro export format',
+                headerRows: 1,
+                headerCols: 1,
+                autoDetect: false
+            },
+            'bmg': {
+                name: 'BMG LABTECH MARS',
+                description: 'MARS Data Analysis export format',
+                headerRows: 1,
+                headerCols: 1,
+                autoDetect: false
+            },
+            'custom': {
+                name: 'Custom Format',
+                description: 'Define your own header structure',
+                headerRows: 0,
+                headerCols: 0,
+                autoDetect: false,
+                customizable: true
+            }
+        };
         let batchFiles = [];
         let batchResults = [];
         let isBatchMode = false;
@@ -1166,6 +1251,24 @@
             return converted;
         }
         
+        function updateReaderFormat() {
+            currentReaderFormat = document.getElementById('readerFormat').value;
+            updateUIForReaderFormat();
+            
+            // Reset data if changing reader format
+            if (plateData.length > 0) {
+                document.getElementById('formatOptions').style.display = 'none';
+                document.getElementById('previewSection').style.display = 'none';
+                plateData = [];
+                convertedData = [];
+            }
+        }
+        
+        function updateUIForReaderFormat() {
+            const format = readerFormats[currentReaderFormat];
+            // Could add info about selected format here if needed
+        }
+        
         function updatePlateType() {
             currentPlateType = document.getElementById('plateType').value;
             updateUIForPlateType();
@@ -1256,11 +1359,52 @@
         function parsePlateCSV(csv) {
             const lines = csv.split('\n').filter(line => line.trim());
             const config = plateConfigs[currentPlateType];
+            const format = readerFormats[currentReaderFormat];
             plateData = [];
             
-            for (let i = 0; i < Math.min(lines.length, config.rows); i++) {
-                const cells = lines[i].split(',').map(cell => cell.trim());
-                plateData.push(cells.slice(0, config.cols)); // Limit to expected columns
+            // Initialize empty plate
+            for (let row = 0; row < config.rows; row++) {
+                const rowData = [];
+                for (let col = 0; col < config.cols; col++) {
+                    rowData.push('');
+                }
+                plateData.push(rowData);
+            }
+            
+            let dataStartRow = 0;
+            let dataStartCol = 0;
+            
+            if (format.autoDetect) {
+                // Auto-detect headers
+                const firstLine = lines[0].split(',').map(cell => cell.trim());
+                
+                // Check if first row has column numbers
+                if (firstLine.length > 1 && !isNaN(parseInt(firstLine[1]))) {
+                    dataStartRow = 1;
+                }
+                
+                // Check if data rows have row headers (letters)
+                if (lines.length > dataStartRow) {
+                    const dataLine = lines[dataStartRow].split(',').map(cell => cell.trim());
+                    if (dataLine.length > 0 && /^[A-Z]+$/i.test(dataLine[0])) {
+                        dataStartCol = 1;
+                    }
+                }
+            } else {
+                // Use predefined format
+                dataStartRow = format.headerRows;
+                dataStartCol = format.headerCols;
+            }
+            
+            // Parse data starting from the correct position
+            for (let lineIndex = dataStartRow; lineIndex < lines.length && (lineIndex - dataStartRow) < config.rows; lineIndex++) {
+                const cells = lines[lineIndex].split(',').map(cell => cell.trim());
+                const plateRow = lineIndex - dataStartRow;
+                
+                for (let cellIndex = dataStartCol; cellIndex < cells.length && (cellIndex - dataStartCol) < config.cols; cellIndex++) {
+                    const plateCol = cellIndex - dataStartCol;
+                    plateData[plateRow][plateCol] = cells[cellIndex];
+                }
             }
             
             if (plateData.length > 0) {
