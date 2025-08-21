@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Tools - M. Jimenez</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .nav-links {
+            margin-top: 20px;
+        }
+
+        .nav-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tool-card {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+
+        .tool-card:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .tool-card h3 {
+            font-size: 1.4rem;
+            color: #667eea;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tool-card .icon {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tool-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tool-features {
+            margin-bottom: 20px;
+        }
+
+        .tool-features h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .feature-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tool-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tool-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .tool-button.secondary {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+            box-shadow: none;
+        }
+
+        .tool-button.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .coming-soon {
+            opacity: 0.7;
+            position: relative;
+        }
+
+        .coming-soon::after {
+            content: 'Coming Soon';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .intro-text {
+            background: rgba(118, 75, 162, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #764ba2;
+            margin-bottom: 30px;
+        }
+
+        .intro-text p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.8;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>🧪 Laboratory Software Tools</h1>
+            <p class="subtitle">Practical web applications for scientific workflows</p>
+            <div class="nav-links">
+                <a href="index.html">← Back to Portfolio</a>
+                <a href="#tools">Browse Tools</a>
+                <a href="https://github.com/leodavinci1452" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="intro-text">
+                <p><strong>Welcome to my collection of laboratory software tools!</strong> As a scientist working at the intersection of experimental biology and computational analysis, I've developed these practical web applications to solve real-world lab workflow challenges.</p>
+                
+                <p>Each tool is designed with the working scientist in mind - combining domain expertise with modern web technologies to create solutions that are both powerful and easy to use. All tools are free, work directly in your browser, and require no installation.</p>
+                
+                <p>Built collaboratively with Claude AI, these tools represent the future of scientific software development - where domain experts can rapidly prototype and deploy specialized applications.</p>
+            </div>
+        </section>
+
+        <section class="section" id="tools">
+            <h2>Available Tools</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3><span class="icon">🧪</span>Well Plate Layout Converter</h3>
+                    <div class="tool-description">
+                        Convert between multi-well plate formats (96, 384, 1536-well) and list layouts with advanced batch processing capabilities. Supports bidirectional conversion with multiple export formats.
+                    </div>
+                    
+                    <div class="tool-features">
+                        <h4>Key Features:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Batch Processing</span>
+                            <span class="feature-tag">Multiple Plate Types</span>
+                            <span class="feature-tag">6 Export Formats</span>
+                            <span class="feature-tag">Drag & Drop</span>
+                            <span class="feature-tag">Progress Tracking</span>
+                            <span class="feature-tag">ZIP Downloads</span>
+                        </div>
+                        <p><strong>Perfect for:</strong> HTS data analysis, assay data reformatting, batch file conversion, lab automation workflows</p>
+                    </div>
+                    
+                    <div class="tool-buttons">
+                        <a href="plate-converter.html" class="tool-button">Launch Tool</a>
+                        <a href="https://github.com/leodavinci1452" class="tool-button secondary">View Code</a>
+                    </div>
+                </div>
+
+                <div class="tool-card coming-soon">
+                    <h3><span class="icon">📊</span>Dose-Response Analyzer</h3>
+                    <div class="tool-description">
+                        Calculate IC50/EC50 values with automated curve fitting, statistical analysis, and publication-ready visualizations. Supports multiple curve models and robust error analysis.
+                    </div>
+                    
+                    <div class="tool-features">
+                        <h4>Planned Features:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">IC50/EC50 Calculation</span>
+                            <span class="feature-tag">Curve Fitting</span>
+                            <span class="feature-tag">Statistical Analysis</span>
+                            <span class="feature-tag">Data Visualization</span>
+                            <span class="feature-tag">Export Results</span>
+                        </div>
+                        <p><strong>Perfect for:</strong> Pharmacology studies, compound profiling, dose-response analysis</p>
+                    </div>
+                    
+                    <div class="tool-buttons">
+                        <a href="#" class="tool-button" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</a>
+                    </div>
+                </div>
+
+                <div class="tool-card coming-soon">
+                    <h3><span class="icon">🎯</span>Assay QC Dashboard</h3>
+                    <div class="tool-description">
+                        Comprehensive quality control analysis for screening assays. Calculate Z-prime, signal windows, hit rates, and generate detailed QC reports with interactive visualizations.
+                    </div>
+                    
+                    <div class="tool-features">
+                        <h4>Planned Features:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Z-Prime Analysis</span>
+                            <span class="feature-tag">Hit Rate Calculation</span>
+                            <span class="feature-tag">Control Analysis</span>
+                            <span class="feature-tag">QC Reports</span>
+                            <span class="feature-tag">Statistical Tests</span>
+                        </div>
+                        <p><strong>Perfect for:</strong> HTS quality control, assay validation, screening campaign analysis</p>
+                    </div>
+                    
+                    <div class="tool-buttons">
+                        <a href="#" class="tool-button" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</a>
+                    </div>
+                </div>
+
+                <div class="tool-card coming-soon">
+                    <h3><span class="icon">⚗️</span>Molarity Calculator Suite</h3>
+                    <div class="tool-description">
+                        Advanced molecular calculations including molarity, dilutions, stock solutions, and compound properties. Built-in molecular weight database and protocol generation.
+                    </div>
+                    
+                    <div class="tool-features">
+                        <h4>Planned Features:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Molarity Calculations</span>
+                            <span class="feature-tag">Dilution Protocols</span>
+                            <span class="feature-tag">MW Database</span>
+                            <span class="feature-tag">Protocol Generation</span>
+                            <span class="feature-tag">Unit Conversions</span>
+                        </div>
+                        <p><strong>Perfect for:</strong> Solution preparation, stock dilutions, protocol planning</p>
+                    </div>
+                    
+                    <div class="tool-buttons">
+                        <a href="#" class="tool-button" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</a>
+                    </div>
+                </div>
+
+                <div class="tool-card coming-soon">
+                    <h3><span class="icon">📈</span>Lab Data Visualizer</h3>
+                    <div class="tool-description">
+                        Create publication-ready plots and charts from laboratory data. Interactive plotting with customizable themes, statistical overlays, and export options.
+                    </div>
+                    
+                    <div class="tool-features">
+                        <h4>Planned Features:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Interactive Plots</span>
+                            <span class="feature-tag">Multiple Chart Types</span>
+                            <span class="feature-tag">Statistical Overlays</span>
+                            <span class="feature-tag">Publication Export</span>
+                            <span class="feature-tag">Custom Themes</span>
+                        </div>
+                        <p><strong>Perfect for:</strong> Data visualization, publication figures, presentation graphics</p>
+                    </div>
+                    
+                    <div class="tool-buttons">
+                        <a href="#" class="tool-button" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</a>
+                    </div>
+                </div>
+
+                <div class="tool-card coming-soon">
+                    <h3><span class="icon">🔬</span>Plate Layout Designer</h3>
+                    <div class="tool-description">
+                        Visual plate layout designer for experimental planning. Design complex layouts with controls, replicates, and treatments. Export to multiple formats and generate protocols.
+                    </div>
+                    
+                    <div class="tool-features">
+                        <h4>Planned Features:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Visual Designer</span>
+                            <span class="feature-tag">Control Mapping</span>
+                            <span class="feature-tag">Replicate Planning</span>
+                            <span class="feature-tag">Protocol Export</span>
+                            <span class="feature-tag">Template Library</span>
+                        </div>
+                        <p><strong>Perfect for:</strong> Experimental design, protocol planning, assay setup</p>
+                    </div>
+                    
+                    <div class="tool-buttons">
+                        <a href="#" class="tool-button" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>About These Tools</h2>
+            <div class="intro-text">
+                <p><strong>Technology Stack:</strong> Built with modern web technologies (HTML5, CSS3, JavaScript ES6+) and enhanced with specialized libraries for scientific computing and data visualization.</p>
+                
+                <p><strong>Development Philosophy:</strong> Each tool is designed to solve real laboratory challenges I've encountered in my 15+ years in drug discovery. They prioritize usability, reliability, and practical functionality over unnecessary complexity.</p>
+                
+                <p><strong>Open Source:</strong> All tools are open source and available on GitHub. Contributions, suggestions, and feedback are always welcome!</p>
+                
+                <p><strong>Collaboration:</strong> Developed in partnership with Claude AI, demonstrating how domain expertise combined with AI assistance can rapidly create powerful scientific software.</p>
+            </div>
+        </section>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Scroll to top functionality
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections and tool cards
+            document.querySelectorAll('.section, .tool-card').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.6s ease';
+                observer.observe(element);
+            });
+
+            // Stagger animation for tool cards
+            document.querySelectorAll('.tool-card').forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
