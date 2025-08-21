@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>384-Well Plate to List Converter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+        
+        .conversion-direction {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .conversion-direction h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .conversion-direction select {
+            padding: 10px 15px;
+            border: 2px solid #3498db;
+            border-radius: 6px;
+            font-size: 16px;
+            background: white;
+            color: #2c3e50;
+            cursor: pointer;
+            min-width: 300px;
+        }
+        
+        .upload-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        
+        .upload-mode {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .upload-mode input[type="radio"] {
+            cursor: pointer;
+        }
+        
+        .upload-mode label {
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .batch-status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .status-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        #clearFiles {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        #clearFiles:hover {
+            background: #c0392b;
+        }
+        
+        .file-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin: 4px 0;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .file-name {
+            font-size: 13px;
+            color: #2c3e50;
+        }
+        
+        .file-size {
+            font-size: 11px;
+            color: #6c757d;
+        }
+        
+        .file-status {
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-processing {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .remove-file {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+        
+        .remove-file:hover {
+            background: #c82333;
+        }
+        
+        .batch-progress {
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .batch-results {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .results-summary {
+            background: #e8f5e8;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .batch-downloads {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .batch-download-btn {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        
+        .batch-download-btn:hover {
+            background: #218838;
+        }
+            border: 3px dashed #3498db;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-section:hover {
+            border-color: #2980b9;
+            background: #e3f2fd;
+        }
+        
+        .upload-section.dragover {
+            border-color: #27ae60;
+            background: #e8f5e8;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .upload-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        
+        .upload-btn:hover {
+            background: #2980b9;
+        }
+        
+        .format-options {
+            display: none;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f1f2f6;
+            border-radius: 8px;
+        }
+        
+        .format-options h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .preview-section {
+            display: none;
+            margin-top: 30px;
+        }
+        
+        .preview-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background: #f8f9fa;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .plate-grid {
+            display: grid;
+            grid-template-columns: repeat(24, 1fr);
+            gap: 1px;
+            background: #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 20px 0;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        
+        .well {
+            background: #f8f9fa;
+            padding: 4px;
+            text-align: center;
+            font-size: 10px;
+            min-height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .plate-96 .well {
+            font-size: 12px;
+            min-height: 25px;
+            padding: 6px;
+        }
+        
+        .plate-384 .well {
+            font-size: 10px;
+            min-height: 20px;
+            padding: 4px;
+        }
+        
+        .plate-1536 .well {
+            font-size: 8px;
+            min-height: 15px;
+            padding: 2px;
+        }
+        
+        .well.header {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .well.row-header {
+            background: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .well.data {
+            background: white;
+            border: 1px solid #eee;
+        }
+        
+        .well.data.has-value {
+            background: #e8f5e8;
+        }
+        
+        .output-section {
+            margin-top: 20px;
+        }
+        
+        .data-preview {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-size: 12px;
+        }
+        
+        .download-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .download-formats {
+            text-align: center;
+        }
+        
+        .download-formats h4 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+        }
+        
+        .format-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .download-btn {
+            background: #27ae60;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            margin: 0;
+            transition: all 0.3s ease;
+            min-width: 100px;
+        }
+        
+        .download-btn:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .footer h4 {
+            margin: 0 0 10px 0;
+            color: #3498db;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .credits {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .credit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .credits {
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .plate-grid {
+                font-size: 8px;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 Well Plate ↔ List Layout Converter</h1>
+            <p>Convert between multi-well plate formats and list formats in both directions</p>
+        </div>
+        
+        <div class="conversion-direction">
+            <h3>Conversion Settings</h3>
+            <div class="settings-row">
+                <div class="setting-item">
+                    <label for="conversionDirection">Direction:</label>
+                    <select id="conversionDirection" onchange="updateConversionDirection()">
+                        <option value="plate-to-list">Plate Format → List Format</option>
+                        <option value="list-to-plate">List Format → Plate Format</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="plateType">Plate Type:</label>
+                    <select id="plateType" onchange="updatePlateType()">
+                        <option value="96">96-well (8×12)</option>
+                        <option value="384" selected>384-well (16×24)</option>
+                        <option value="1536">1536-well (32×48)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="upload-section" id="uploadSection">
+            <div>
+                <h3 id="uploadTitle">📁 Upload CSV Files (Plate Format)</h3>
+                <p id="uploadDescription">Click to select or drag & drop your 384-well plate CSV files (16 rows × 24 columns)</p>
+                
+                <div class="upload-options">
+                    <div class="upload-mode">
+                        <input type="radio" id="singleMode" name="uploadMode" value="single" checked onchange="toggleUploadMode()">
+                        <label for="singleMode">Single File</label>
+                    </div>
+                    <div class="upload-mode">
+                        <input type="radio" id="batchMode" name="uploadMode" value="batch" onchange="toggleUploadMode()">
+                        <label for="batchMode">Batch Processing</label>
+                    </div>
+                </div>
+                
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                    <span id="uploadBtnText">Choose File</span>
+                </button>
+                <input type="file" id="fileInput" accept=".csv" />
+                
+                <div id="batchStatus" class="batch-status" style="display: none;">
+                    <div class="status-summary">
+                        <span id="fileCount">0 files selected</span>
+                        <button id="clearFiles" onclick="clearBatchFiles()" style="display: none;">Clear All</button>
+                    </div>
+                    <div id="fileList" class="file-list"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="format-options" id="formatOptions">
+            <h3 id="formatTitle">Output Format Options</h3>
+            <div class="radio-group" id="plateToListOptions">
+                <div class="radio-item">
+                    <input type="radio" id="format1" name="format" value="simple" checked>
+                    <label for="format1">Simple List (Well, Value)</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="format2" name="format" value="detailed">
+                    <label for="format2">Detailed (Well, Row, Column, Value)</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="format3" name="format" value="coordinates">
+                    <label for="format3">With Coordinates (Well, Row_Num, Col_Num, Value)</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="format4" name="format" value="filtered">
+                    <label for="format4">Non-Empty Only</label>
+                </div>
+            </div>
+            <div class="radio-group" id="listToPlateOptions" style="display: none;">
+                <div class="radio-item">
+                    <input type="radio" id="format5" name="plateFormat" value="values-only" checked>
+                    <label for="format5">Values Only (no headers)</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="format6" name="plateFormat" value="with-headers">
+                    <label for="format6">With Row/Column Headers</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="format7" name="plateFormat" value="fill-empty">
+                    <label for="format7">Fill Empty Wells with Zeros</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-section" id="previewSection">
+            <div class="preview-tabs">
+                <button class="tab-btn active" onclick="switchTab('plate')">Plate View</button>
+                <button class="tab-btn" onclick="switchTab('list')">List Preview</button>
+            </div>
+            
+            <div id="plateView">
+                <div class="info-box">
+                    <strong>Plate Layout:</strong> Visual representation of your 384-well plate data
+                </div>
+                <div id="plateGrid" class="plate-grid"></div>
+            </div>
+            
+            <div id="listView" style="display: none;">
+                <div class="info-box">
+                    <strong>List Preview:</strong> First 20 rows of converted data
+                </div>
+                <div class="output-section">
+                    <div id="dataPreview" class="data-preview"></div>
+                </div>
+            </div>
+            
+            <div class="download-section">
+                <div class="download-formats">
+                    <h4>Export Formats</h4>
+                    <div class="format-buttons">
+                        <button class="download-btn" onclick="downloadCSV()">📊 CSV</button>
+                        <button class="download-btn" onclick="downloadTXT()">📄 TXT (Tab)</button>
+                        <button class="download-btn" onclick="downloadTSV()">📋 TSV</button>
+                        <button class="download-btn" onclick="downloadExcel()">📗 Excel</button>
+                        <button class="download-btn" onclick="downloadJSON()">🔗 JSON</button>
+                        <button class="download-btn" onclick="downloadXML()">📰 XML</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="batchProgress" class="batch-progress">
+                <h4>Processing Files...</h4>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill">0%</div>
+                </div>
+                <p id="progressText">Preparing...</p>
+            </div>
+            
+            <div id="batchResults" class="batch-results">
+                <div class="results-summary">
+                    <h4>✅ Batch Processing Complete!</h4>
+                    <p id="resultsSummary"></p>
+                </div>
+                <div class="batch-downloads">
+                    <button class="batch-download-btn" onclick="downloadBatchZip()">📦 Download All as ZIP</button>
+                    <button class="batch-download-btn" onclick="downloadBatchCSV()">📊 Combined CSV</button>
+                    <button class="batch-download-btn" onclick="downloadBatchExcel()">📗 Combined Excel</button>
+                    <button class="batch-download-btn" onclick="downloadBatchJSON()">🔗 Combined JSON</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h4>🧪 Well Plate ↔ List Layout Converter</h4>
+            <p>A free tool for converting between multi-well plate formats and list layouts</p>
+            
+            <div class="credits">
+                <div class="credit-item">
+                    <strong>👩‍🔬 Developed by</strong>
+                    <span>Marta Jimenez</span>
+                    <small>Multidisciplinary Drug Discovery Scientist</small>
+                </div>
+                <div class="credit-item">
+                    <strong>🤖 Coding Partner</strong>
+                    <span>Claude AI (Anthropic)</span>
+                    <small>AI Assistant & Co-developer</small>
+                </div>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 12px; opacity: 0.7;">
+                Built with HTML, CSS, and JavaScript • 
+                <a href="https://github.com/yourusername" target="_blank">View on GitHub</a> • 
+                <a href="https://leodavinci1452.github.io/" target="_blank">Developer Portfolio</a>
+            </p>
+            
+            <p style="font-size: 11px; opacity: 0.6; margin-top: 10px;">
+                Supports 96-well, 384-well, and 1536-well plate formats • 
+                Free for academic and commercial use
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        let plateData = [];
+        let convertedData = [];
+        let conversionMode = 'plate-to-list';
+        let currentPlateType = '384';
+        let batchFiles = [];
+        let batchResults = [];
+        let isBatchMode = false;
+        
+        // Plate configurations
+        const plateConfigs = {
+            '96': { rows: 8, cols: 12, rowLabels: 'ABCDEFGH' },
+            '384': { rows: 16, cols: 24, rowLabels: 'ABCDEFGHIJKLMNOP' },
+            '1536': { rows: 32, cols: 48, rowLabels: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456' }
+        };
+        
+        // File input handling
+        document.getElementById('fileInput').addEventListener('change', handleFile);
+        
+        // Drag and drop handling
+        const uploadSection = document.getElementById('uploadSection');
+        uploadSection.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadSection.classList.add('dragover');
+        });
+        
+        uploadSection.addEventListener('dragleave', () => {
+            uploadSection.classList.remove('dragover');
+        });
+        
+        uploadSection.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadSection.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files);
+            if (files.length > 0) {
+                if (isBatchMode) {
+                    addBatchFiles(files);
+                } else {
+                    processFile(files[0]);
+                }
+            }
+        });
+        
+        // Format option change handling
+        document.querySelectorAll('input[name="format"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (plateData.length > 0) {
+                    convertData();
+                    updatePreview();
+                }
+            });
+        });
+        
+        document.querySelectorAll('input[name="plateFormat"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (plateData.length > 0) {
+                    convertData();
+                    updatePreview();
+                }
+            });
+        });
+        
+        function toggleUploadMode() {
+            isBatchMode = document.querySelector('input[name="uploadMode"]:checked').value === 'batch';
+            const fileInput = document.getElementById('fileInput');
+            const uploadBtnText = document.getElementById('uploadBtnText');
+            const batchStatus = document.getElementById('batchStatus');
+            
+            if (isBatchMode) {
+                fileInput.multiple = true;
+                uploadBtnText.textContent = 'Choose Files';
+                batchStatus.style.display = 'block';
+            } else {
+                fileInput.multiple = false;
+                uploadBtnText.textContent = 'Choose File';
+                batchStatus.style.display = 'none';
+                clearBatchFiles();
+            }
+            
+            // Reset preview for mode change
+            document.getElementById('previewSection').style.display = 'none';
+            document.getElementById('formatOptions').style.display = 'none';
+        }
+        
+        function addBatchFiles(files) {
+            files.forEach(file => {
+                if (file.name.toLowerCase().endsWith('.csv')) {
+                    const fileId = Date.now() + Math.random();
+                    batchFiles.push({
+                        id: fileId,
+                        file: file,
+                        name: file.name,
+                        size: file.size,
+                        status: 'pending'
+                    });
+                }
+            });
+            updateBatchFileList();
+        }
+        
+        function updateBatchFileList() {
+            const fileCount = document.getElementById('fileCount');
+            const fileList = document.getElementById('fileList');
+            const clearBtn = document.getElementById('clearFiles');
+            
+            fileCount.textContent = `${batchFiles.length} files selected`;
+            clearBtn.style.display = batchFiles.length > 0 ? 'block' : 'none';
+            
+            fileList.innerHTML = '';
+            batchFiles.forEach(fileInfo => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <div class="file-info">
+                        <span class="file-name">${fileInfo.name}</span>
+                        <span class="file-size">(${formatFileSize(fileInfo.size)})</span>
+                    </div>
+                    <div>
+                        <span class="file-status status-${fileInfo.status}">${fileInfo.status}</span>
+                        <button class="remove-file" onclick="removeBatchFile('${fileInfo.id}')">×</button>
+                    </div>
+                `;
+                fileList.appendChild(fileItem);
+            });
+            
+            // Show format options if files are loaded
+            if (batchFiles.length > 0) {
+                document.getElementById('formatOptions').style.display = 'block';
+            }
+        }
+        
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1048576) return Math.round(bytes / 1024) + ' KB';
+            return Math.round(bytes / 1048576) + ' MB';
+        }
+        
+        function removeBatchFile(fileId) {
+            batchFiles = batchFiles.filter(f => f.id != fileId);
+            updateBatchFileList();
+            
+            if (batchFiles.length === 0) {
+                document.getElementById('formatOptions').style.display = 'none';
+                document.getElementById('previewSection').style.display = 'none';
+            }
+        }
+        
+        function clearBatchFiles() {
+            batchFiles = [];
+            batchResults = [];
+            updateBatchFileList();
+            document.getElementById('batchProgress').style.display = 'none';
+            document.getElementById('batchResults').style.display = 'none';
+        }
+        
+        async function processBatchFiles() {
+            if (batchFiles.length === 0) return;
+            
+            document.getElementById('batchProgress').style.display = 'block';
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            batchResults = [];
+            
+            for (let i = 0; i < batchFiles.length; i++) {
+                const fileInfo = batchFiles[i];
+                fileInfo.status = 'processing';
+                updateBatchFileList();
+                
+                progressText.textContent = `Processing ${fileInfo.name} (${i + 1} of ${batchFiles.length})`;
+                
+                try {
+                    const result = await processSingleBatchFile(fileInfo.file);
+                    batchResults.push({
+                        name: fileInfo.name,
+                        data: result,
+                        success: true
+                    });
+                    fileInfo.status = 'completed';
+                } catch (error) {
+                    console.error('Error processing file:', error);
+                    batchResults.push({
+                        name: fileInfo.name,
+                        error: error.message,
+                        success: false
+                    });
+                    fileInfo.status = 'error';
+                }
+                
+                const progress = Math.round(((i + 1) / batchFiles.length) * 100);
+                progressFill.style.width = progress + '%';
+                progressFill.textContent = progress + '%';
+                
+                updateBatchFileList();
+                
+                // Small delay to show progress
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            showBatchResults();
+        }
+        
+        function processSingleBatchFile(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const csv = e.target.result;
+                        const result = convertFileData(csv, file.name);
+                        resolve(result);
+                    } catch (error) {
+                        reject(error);
+                    }
+                };
+                reader.onerror = () => reject(new Error('Failed to read file'));
+                reader.readAsText(file);
+            });
+        }
+        
+        function convertFileData(csv, filename) {
+            // Parse and convert the data (reusing existing logic)
+            let tempPlateData, tempConvertedData;
+            
+            if (conversionMode === 'plate-to-list') {
+                tempPlateData = parsePlateCSVData(csv);
+                tempConvertedData = convertPlateToListData(tempPlateData);
+            } else {
+                tempPlateData = parseListCSVData(csv);
+                tempConvertedData = convertListToPlateData(tempPlateData);
+            }
+            
+            return {
+                filename: filename,
+                originalData: tempPlateData,
+                convertedData: tempConvertedData
+            };
+        }
+        
+        function showBatchResults() {
+            const successCount = batchResults.filter(r => r.success).length;
+            const errorCount = batchResults.filter(r => !r.success).length;
+            
+            document.getElementById('resultsSummary').innerHTML = `
+                <strong>${successCount} files processed successfully</strong><br>
+                ${errorCount > 0 ? `${errorCount} files had errors` : 'All files processed without errors!'}
+            `;
+            
+            document.getElementById('batchProgress').style.display = 'none';
+            document.getElementById('batchResults').style.display = 'block';
+        }
+        
+        async function downloadBatchZip() {
+            const zip = new JSZip();
+            
+            batchResults.forEach(result => {
+                if (result.success) {
+                    const baseName = result.name.replace('.csv', '_converted');
+                    
+                    // Add multiple formats to ZIP
+                    const formats = [
+                        { ext: 'csv', separator: ',', type: 'text/csv' },
+                        { ext: 'tsv', separator: '\t', type: 'text/tab-separated-values' },
+                        { ext: 'txt', separator: '\t', type: 'text/plain' }
+                    ];
+                    
+                    formats.forEach(format => {
+                        let content = '';
+                        if (conversionMode === 'plate-to-list') {
+                            const headers = getListHeaders(document.querySelector('input[name="format"]:checked').value);
+                            content = headers.replace(/,/g, format.separator) + '\n';
+                            content += result.data.convertedData.map(row => row.join(format.separator)).join('\n');
+                        } else {
+                            content = result.data.convertedData.map(row => row.join(format.separator)).join('\n');
+                        }
+                        
+                        zip.file(`${baseName}.${format.ext}`, content);
+                    });
+                    
+                    // Add JSON format
+                    const jsonData = {
+                        filename: result.name,
+                        plateType: currentPlateType,
+                        conversionMode: conversionMode,
+                        exportDate: new Date().toISOString(),
+                        data: result.data.convertedData
+                    };
+                    zip.file(`${baseName}.json`, JSON.stringify(jsonData, null, 2));
+                }
+            });
+            
+            const content = await zip.generateAsync({type: 'blob'});
+            downloadFile(content, `batch_converted_${currentPlateType}well_all_formats.zip`, 'application/zip');
+        }
+        
+        function downloadBatchExcel() {
+            const wb = XLSX.utils.book_new();
+            
+            batchResults.forEach((result, index) => {
+                if (result.success) {
+                    let wsData = [];
+                    
+                    if (conversionMode === 'plate-to-list') {
+                        const format = document.querySelector('input[name="format"]:checked').value;
+                        const headers = getListHeaders(format).split(',');
+                        wsData.push(headers);
+                        wsData = wsData.concat(result.data.convertedData);
+                    } else {
+                        wsData = result.data.convertedData;
+                    }
+                    
+                    const ws = XLSX.utils.aoa_to_sheet(wsData);
+                    const sheetName = result.name.replace('.csv', '').substring(0, 31); // Excel sheet name limit
+                    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+                }
+            });
+            
+            XLSX.writeFile(wb, `batch_converted_${currentPlateType}well.xlsx`);
+        }
+        
+        function downloadBatchJSON() {
+            const batchData = {
+                metadata: {
+                    plateType: currentPlateType,
+                    conversionMode: conversionMode,
+                    exportDate: new Date().toISOString(),
+                    totalFiles: batchResults.filter(r => r.success).length
+                },
+                files: batchResults.filter(r => r.success).map(result => ({
+                    filename: result.name,
+                    data: result.data.convertedData
+                }))
+            };
+            
+            const jsonContent = JSON.stringify(batchData, null, 2);
+            downloadFile(jsonContent, `batch_converted_${currentPlateType}well.json`, 'application/json');
+        }
+        
+        function getListHeaders(format) {
+            switch (format) {
+                case 'simple': return 'Well,Value';
+                case 'detailed': return 'Well,Row,Column,Value';
+                case 'coordinates': return 'Well,Row_Num,Col_Num,Value';
+                case 'filtered': return 'Well,Value';
+                default: return 'Well,Value';
+            }
+        }
+        
+        // Helper functions for batch processing (extracted from main functions)
+        function parsePlateCSVData(csv) {
+            const lines = csv.split('\n').filter(line => line.trim());
+            const config = plateConfigs[currentPlateType];
+            const data = [];
+            
+            for (let i = 0; i < Math.min(lines.length, config.rows); i++) {
+                const cells = lines[i].split(',').map(cell => cell.trim());
+                data.push(cells.slice(0, config.cols));
+            }
+            return data;
+        }
+        
+        function parseListCSVData(csv) {
+            const lines = csv.split('\n').filter(line => line.trim());
+            const listData = [];
+            const config = plateConfigs[currentPlateType];
+            const startRow = (lines[0] && lines[0].toLowerCase().includes('well')) ? 1 : 0;
+            
+            for (let i = startRow; i < lines.length; i++) {
+                const cells = lines[i].split(',').map(cell => cell.trim());
+                if (cells.length >= 2) {
+                    listData.push({
+                        well: cells[0],
+                        value: cells[cells.length - 1]
+                    });
+                }
+            }
+            
+            const plateData = createEmptyPlate();
+            listData.forEach(item => {
+                const wellPos = parseWellPosition(item.well);
+                if (wellPos && wellPos.row < config.rows && wellPos.col < config.cols) {
+                    plateData[wellPos.row][wellPos.col] = item.value;
+                }
+            });
+            
+            return plateData;
+        }
+        
+        function convertPlateToListData(data) {
+            const format = document.querySelector('input[name="format"]:checked').value;
+            const config = plateConfigs[currentPlateType];
+            const converted = [];
+            
+            for (let row = 0; row < Math.min(data.length, config.rows); row++) {
+                const rowData = data[row];
+                for (let col = 0; col < Math.min(rowData.length, config.cols); col++) {
+                    const value = rowData[col];
+                    const wellId = config.rowLabels[row] + (col + 1);
+                    
+                    if (format === 'filtered' && (!value || value === '' || value === '0')) {
+                        continue;
+                    }
+                    
+                    switch (format) {
+                        case 'simple':
+                            converted.push([wellId, value || '']);
+                            break;
+                        case 'detailed':
+                            converted.push([wellId, config.rowLabels[row], col + 1, value || '']);
+                            break;
+                        case 'coordinates':
+                            converted.push([wellId, row + 1, col + 1, value || '']);
+                            break;
+                        case 'filtered':
+                            converted.push([wellId, value]);
+                            break;
+                    }
+                }
+            }
+            return converted;
+        }
+        
+        function convertListToPlateData(data) {
+            const format = document.querySelector('input[name="plateFormat"]:checked').value;
+            const config = plateConfigs[currentPlateType];
+            const converted = [];
+            
+            if (format === 'with-headers') {
+                const headerRow = [''];
+                for (let col = 1; col <= config.cols; col++) {
+                    headerRow.push(col.toString());
+                }
+                converted.push(headerRow);
+            }
+            
+            for (let row = 0; row < config.rows; row++) {
+                const rowData = [];
+                
+                if (format === 'with-headers') {
+                    rowData.push(config.rowLabels[row]);
+                }
+                
+                for (let col = 0; col < config.cols; col++) {
+                    let value = data[row][col] || '';
+                    
+                    if (format === 'fill-empty' && (!value || value === '')) {
+                        value = '0';
+                    }
+                    
+                    rowData.push(value);
+                }
+                converted.push(rowData);
+            }
+            return converted;
+        }
+        
+        function updatePlateType() {
+            currentPlateType = document.getElementById('plateType').value;
+            updateUIForPlateType();
+            
+            // Reset data if changing plate type
+            if (plateData.length > 0) {
+                document.getElementById('formatOptions').style.display = 'none';
+                document.getElementById('previewSection').style.display = 'none';
+                plateData = [];
+                convertedData = [];
+            }
+        }
+        
+        function updateUIForPlateType() {
+            const config = plateConfigs[currentPlateType];
+            const uploadDescription = document.getElementById('uploadDescription');
+            
+            if (conversionMode === 'plate-to-list') {
+                uploadDescription.textContent = `Click to select or drag & drop your ${currentPlateType}-well plate CSV file (${config.rows} rows × ${config.cols} columns)`;
+            } else {
+                uploadDescription.textContent = `Click to select or drag & drop your list CSV file (Well, Value format for ${currentPlateType}-well plate)`;
+            }
+        }
+        
+        function updateConversionDirection() {
+            const direction = document.getElementById('conversionDirection').value;
+            conversionMode = direction;
+            
+            // Update UI based on conversion direction
+            const uploadTitle = document.getElementById('uploadTitle');
+            const formatTitle = document.getElementById('formatTitle');
+            const plateToListOptions = document.getElementById('plateToListOptions');
+            const listToPlateOptions = document.getElementById('listToPlateOptions');
+            
+            if (direction === 'plate-to-list') {
+                uploadTitle.textContent = '📁 Upload CSV File (Plate Format)';
+                formatTitle.textContent = 'List Output Format Options';
+                plateToListOptions.style.display = 'flex';
+                listToPlateOptions.style.display = 'none';
+            } else {
+                uploadTitle.textContent = '📁 Upload CSV File (List Format)';
+                formatTitle.textContent = 'Plate Output Format Options';
+                plateToListOptions.style.display = 'none';
+                listToPlateOptions.style.display = 'flex';
+            }
+            
+            updateUIForPlateType();
+            
+            // Reset the preview
+            document.getElementById('formatOptions').style.display = 'none';
+            document.getElementById('previewSection').style.display = 'none';
+            plateData = [];
+            convertedData = [];
+        }
+        
+        function handleFile(event) {
+            const files = Array.from(event.target.files);
+            if (files.length > 0) {
+                if (isBatchMode) {
+                    addBatchFiles(files);
+                    if (batchFiles.length > 0) {
+                        processBatchFiles();
+                    }
+                } else {
+                    processFile(files[0]);
+                }
+            }
+        }
+        
+        function processFile(file) {
+            if (!file.name.toLowerCase().endsWith('.csv')) {
+                alert('Please select a CSV file');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const csv = e.target.result;
+                if (conversionMode === 'plate-to-list') {
+                    parsePlateCSV(csv);
+                } else {
+                    parseListCSV(csv);
+                }
+            };
+            reader.readAsText(file);
+        }
+        
+        function parsePlateCSV(csv) {
+            const lines = csv.split('\n').filter(line => line.trim());
+            const config = plateConfigs[currentPlateType];
+            plateData = [];
+            
+            for (let i = 0; i < Math.min(lines.length, config.rows); i++) {
+                const cells = lines[i].split(',').map(cell => cell.trim());
+                plateData.push(cells.slice(0, config.cols)); // Limit to expected columns
+            }
+            
+            if (plateData.length > 0) {
+                document.getElementById('formatOptions').style.display = 'block';
+                convertData();
+                showPreview();
+            }
+        }
+        
+        function parseListCSV(csv) {
+            const lines = csv.split('\n').filter(line => line.trim());
+            const listData = [];
+            const config = plateConfigs[currentPlateType];
+            
+            // Skip header row if it exists
+            const startRow = (lines[0] && lines[0].toLowerCase().includes('well')) ? 1 : 0;
+            
+            for (let i = startRow; i < lines.length; i++) {
+                const cells = lines[i].split(',').map(cell => cell.trim());
+                if (cells.length >= 2) {
+                    listData.push({
+                        well: cells[0],
+                        value: cells[cells.length - 1] // Take the last column as value
+                    });
+                }
+            }
+            
+            // Convert list data to plate format
+            plateData = createEmptyPlate();
+            
+            listData.forEach(item => {
+                const wellPos = parseWellPosition(item.well);
+                if (wellPos && wellPos.row < config.rows && wellPos.col < config.cols) {
+                    plateData[wellPos.row][wellPos.col] = item.value;
+                }
+            });
+            
+            if (plateData.length > 0) {
+                document.getElementById('formatOptions').style.display = 'block';
+                convertData();
+                showPreview();
+            }
+        }
+        
+        function createEmptyPlate() {
+            const config = plateConfigs[currentPlateType];
+            const plate = [];
+            for (let row = 0; row < config.rows; row++) {
+                const rowData = [];
+                for (let col = 0; col < config.cols; col++) {
+                    rowData.push('');
+                }
+                plate.push(rowData);
+            }
+            return plate;
+        }
+        
+        function parseWellPosition(wellId) {
+            // Parse well IDs like A1, B12, P24, etc.
+            const match = wellId.match(/^([A-Z]+)(\d+)$/i);
+            if (match) {
+                const rowChars = match[1].toUpperCase();
+                const col = parseInt(match[2]) - 1;
+                
+                // Handle single and multi-character row labels
+                let row = -1;
+                if (rowChars.length === 1) {
+                    row = rowChars.charCodeAt(0) - 65; // A=0, B=1, etc.
+                } else {
+                    // For 1536-well plates, handle multi-character row labels
+                    const config = plateConfigs[currentPlateType];
+                    row = config.rowLabels.indexOf(rowChars);
+                }
+                
+                const config = plateConfigs[currentPlateType];
+                if (row >= 0 && row < config.rows && col >= 0 && col < config.cols) {
+                    return { row, col };
+                }
+            }
+            return null;
+        }
+        
+        function convertData() {
+            convertedData = [];
+            
+            if (conversionMode === 'plate-to-list') {
+                convertPlateToList();
+            } else {
+                convertListToPlate();
+            }
+        }
+        
+        function convertPlateToList() {
+            const format = document.querySelector('input[name="format"]:checked').value;
+            const config = plateConfigs[currentPlateType];
+            
+            // Process the data
+            for (let row = 0; row < Math.min(plateData.length, config.rows); row++) {
+                const rowData = plateData[row];
+                for (let col = 0; col < Math.min(rowData.length, config.cols); col++) {
+                    const value = rowData[col];
+                    const wellId = config.rowLabels[row] + (col + 1);
+                    
+                    // Skip empty values if filtered format is selected
+                    if (format === 'filtered' && (!value || value === '' || value === '0')) {
+                        continue;
+                    }
+                    
+                    switch (format) {
+                        case 'simple':
+                            convertedData.push([wellId, value || '']);
+                            break;
+                        case 'detailed':
+                            convertedData.push([wellId, config.rowLabels[row], col + 1, value || '']);
+                            break;
+                        case 'coordinates':
+                            convertedData.push([wellId, row + 1, col + 1, value || '']);
+                            break;
+                        case 'filtered':
+                            convertedData.push([wellId, value]);
+                            break;
+                    }
+                }
+            }
+        }
+        
+        function convertListToPlate() {
+            const format = document.querySelector('input[name="plateFormat"]:checked').value;
+            const config = plateConfigs[currentPlateType];
+            
+            // Create the plate format output
+            if (format === 'with-headers') {
+                // Add column headers
+                const headerRow = [''];
+                for (let col = 1; col <= config.cols; col++) {
+                    headerRow.push(col.toString());
+                }
+                convertedData.push(headerRow);
+            }
+            
+            // Add data rows
+            for (let row = 0; row < config.rows; row++) {
+                const rowData = [];
+                
+                if (format === 'with-headers') {
+                    rowData.push(config.rowLabels[row]); // Row header
+                }
+                
+                for (let col = 0; col < config.cols; col++) {
+                    let value = plateData[row][col] || '';
+                    
+                    // Fill empty wells with zeros if requested
+                    if (format === 'fill-empty' && (!value || value === '')) {
+                        value = '0';
+                    }
+                    
+                    rowData.push(value);
+                }
+                convertedData.push(rowData);
+            }
+        }
+        
+        function showPreview() {
+            document.getElementById('previewSection').style.display = 'block';
+            updatePreview();
+        }
+        
+        function updatePreview() {
+            updatePlateView();
+            updateListView();
+        }
+        
+        function updatePlateView() {
+            const grid = document.getElementById('plateGrid');
+            const config = plateConfigs[currentPlateType];
+            
+            grid.innerHTML = '';
+            grid.className = `plate-grid plate-${currentPlateType}`;
+            
+            // Add column headers
+            grid.appendChild(createWell('', 'header'));
+            for (let col = 1; col <= config.cols; col++) {
+                grid.appendChild(createWell(col.toString(), 'header'));
+            }
+            
+            // Add rows with data
+            for (let row = 0; row < config.rows; row++) {
+                // Row header
+                grid.appendChild(createWell(config.rowLabels[row], 'row-header'));
+                
+                // Data cells
+                for (let col = 0; col < config.cols; col++) {
+                    const value = (plateData[row] && plateData[row][col]) ? plateData[row][col] : '';
+                    const well = createWell(value, 'data');
+                    if (value && value !== '0' && value !== '') {
+                        well.classList.add('has-value');
+                    }
+                    grid.appendChild(well);
+                }
+            }
+        }
+        
+        function createWell(content, type) {
+            const well = document.createElement('div');
+            well.className = `well ${type}`;
+            well.textContent = content;
+            well.title = content; // Tooltip for full content
+            return well;
+        }
+        
+        function updateListView() {
+            const preview = document.getElementById('dataPreview');
+            let content = '';
+            
+            if (conversionMode === 'plate-to-list') {
+                const format = document.querySelector('input[name="format"]:checked').value;
+                let headers;
+                switch (format) {
+                    case 'simple':
+                        headers = 'Well,Value';
+                        break;
+                    case 'detailed':
+                        headers = 'Well,Row,Column,Value';
+                        break;
+                    case 'coordinates':
+                        headers = 'Well,Row_Num,Col_Num,Value';
+                        break;
+                    case 'filtered':
+                        headers = 'Well,Value';
+                        break;
+                }
+                
+                content = headers + '\n';
+                const previewRows = convertedData.slice(0, 20);
+                content += previewRows.map(row => row.join(',')).join('\n');
+                
+                if (convertedData.length > 20) {
+                    content += `\n... and ${convertedData.length - 20} more rows`;
+                }
+            } else {
+                // List to plate conversion
+                content = convertedData.map(row => row.join(',')).join('\n');
+                if (convertedData.length > 20) {
+                    content = convertedData.slice(0, 20).map(row => row.join(',')).join('\n');
+                    content += `\n... and ${convertedData.length - 20} more rows`;
+                }
+            }
+            
+            preview.textContent = content;
+        }
+        
+        function switchTab(tab) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide content
+            document.getElementById('plateView').style.display = tab === 'plate' ? 'block' : 'none';
+            document.getElementById('listView').style.display = tab === 'list' ? 'block' : 'none';
+        }
+        
+        function downloadCSV() {
+            let csvContent = '';
+            let filename = '';
+            
+            if (conversionMode === 'plate-to-list') {
+                const format = document.querySelector('input[name="format"]:checked').value;
+                const headers = getListHeaders(format);
+                csvContent = headers + '\n';
+                csvContent += convertedData.map(row => row.join(',')).join('\n');
+                filename = `${currentPlateType}well_to_list_converted.csv`;
+            } else {
+                csvContent = convertedData.map(row => row.join(',')).join('\n');
+                filename = `list_to_${currentPlateType}well_converted.csv`;
+            }
+            
+            downloadFile(csvContent, filename, 'text/csv');
+        }
+        
+        function downloadTXT() {
+            let txtContent = '';
+            let filename = '';
+            
+            if (conversionMode === 'plate-to-list') {
+                const format = document.querySelector('input[name="format"]:checked').value;
+                const headers = getListHeaders(format).replace(/,/g, '\t');
+                txtContent = headers + '\n';
+                txtContent += convertedData.map(row => row.join('\t')).join('\n');
+                filename = `${currentPlateType}well_to_list_converted.txt`;
+            } else {
+                txtContent = convertedData.map(row => row.join('\t')).join('\n');
+                filename = `list_to_${currentPlateType}well_converted.txt`;
+            }
+            
+            downloadFile(txtContent, filename, 'text/plain');
+        }
+        
+        function downloadTSV() {
+            let tsvContent = '';
+            let filename = '';
+            
+            if (conversionMode === 'plate-to-list') {
+                const format = document.querySelector('input[name="format"]:checked').value;
+                const headers = getListHeaders(format).replace(/,/g, '\t');
+                tsvContent = headers + '\n';
+                tsvContent += convertedData.map(row => row.join('\t')).join('\n');
+                filename = `${currentPlateType}well_to_list_converted.tsv`;
+            } else {
+                tsvContent = convertedData.map(row => row.join('\t')).join('\n');
+                filename = `list_to_${currentPlateType}well_converted.tsv`;
+            }
+            
+            downloadFile(tsvContent, filename, 'text/tab-separated-values');
+        }
+        
+        function downloadExcel() {
+            const wb = XLSX.utils.book_new();
+            let wsData = [];
+            let filename = '';
+            
+            if (conversionMode === 'plate-to-list') {
+                const format = document.querySelector('input[name="format"]:checked').value;
+                const headers = getListHeaders(format).split(',');
+                wsData.push(headers);
+                wsData = wsData.concat(convertedData);
+                filename = `${currentPlateType}well_to_list_converted.xlsx`;
+            } else {
+                wsData = convertedData;
+                filename = `list_to_${currentPlateType}well_converted.xlsx`;
+            }
+            
+            const ws = XLSX.utils.aoa_to_sheet(wsData);
+            XLSX.utils.book_append_sheet(wb, ws, "Converted Data");
+            XLSX.writeFile(wb, filename);
+        }
+        
+        function downloadJSON() {
+            let jsonData = {};
+            let filename = '';
+            
+            if (conversionMode === 'plate-to-list') {
+                const format = document.querySelector('input[name="format"]:checked').value;
+                const headers = getListHeaders(format).split(',');
+                
+                jsonData = {
+                    metadata: {
+                        plateType: currentPlateType,
+                        conversionMode: conversionMode,
+                        format: format,
+                        exportDate: new Date().toISOString()
+                    },
+                    data: convertedData.map(row => {
+                        const obj = {};
+                        headers.forEach((header, index) => {
+                            obj[header] = row[index] || '';
+                        });
+                        return obj;
+                    })
+                };
+                filename = `${currentPlateType}well_to_list_converted.json`;
+            } else {
+                jsonData = {
+                    metadata: {
+                        plateType: currentPlateType,
+                        conversionMode: conversionMode,
+                        exportDate: new Date().toISOString()
+                    },
+                    plateData: convertedData
+                };
+                filename = `list_to_${currentPlateType}well_converted.json`;
+            }
+            
+            const jsonContent = JSON.stringify(jsonData, null, 2);
+            downloadFile(jsonContent, filename, 'application/json');
+        }
+        
+        function downloadXML() {
+            let xmlContent = '';
+            let filename = '';
+            
+            if (conversionMode === 'plate-to-list') {
+                const format = document.querySelector('input[name="format"]:checked').value;
+                const headers = getListHeaders(format).split(',');
+                
+                xmlContent = '<?xml version="1.0" encoding="UTF-8"?>\n';
+                xmlContent += '<PlateData>\n';
+                xmlContent += `  <metadata>\n`;
+                xmlContent += `    <plateType>${currentPlateType}</plateType>\n`;
+                xmlContent += `    <conversionMode>${conversionMode}</conversionMode>\n`;
+                xmlContent += `    <format>${format}</format>\n`;
+                xmlContent += `    <exportDate>${new Date().toISOString()}</exportDate>\n`;
+                xmlContent += `  </metadata>\n`;
+                xmlContent += '  <data>\n';
+                
+                convertedData.forEach(row => {
+                    xmlContent += '    <record>\n';
+                    headers.forEach((header, index) => {
+                        xmlContent += `      <${header.toLowerCase()}>${row[index] || ''}</${header.toLowerCase()}>\n`;
+                    });
+                    xmlContent += '    </record>\n';
+                });
+                
+                xmlContent += '  </data>\n';
+                xmlContent += '</PlateData>';
+                filename = `${currentPlateType}well_to_list_converted.xml`;
+            } else {
+                xmlContent = '<?xml version="1.0" encoding="UTF-8"?>\n';
+                xmlContent += '<PlateLayout>\n';
+                xmlContent += `  <metadata>\n`;
+                xmlContent += `    <plateType>${currentPlateType}</plateType>\n`;
+                xmlContent += `    <conversionMode>${conversionMode}</conversionMode>\n`;
+                xmlContent += `    <exportDate>${new Date().toISOString()}</exportDate>\n`;
+                xmlContent += `  </metadata>\n`;
+                xmlContent += '  <rows>\n';
+                
+                convertedData.forEach((row, rowIndex) => {
+                    xmlContent += `    <row index="${rowIndex}">\n`;
+                    row.forEach((cell, colIndex) => {
+                        xmlContent += `      <cell col="${colIndex}">${cell || ''}</cell>\n`;
+                    });
+                    xmlContent += '    </row>\n';
+                });
+                
+                xmlContent += '  </rows>\n';
+                xmlContent += '</PlateLayout>';
+                filename = `list_to_${currentPlateType}well_converted.xml`;
+            }
+            
+            downloadFile(xmlContent, filename, 'application/xml');
+        }
+        
+        function downloadFile(content, filename, contentType) {
+            const blob = new Blob([content], { type: contentType });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
