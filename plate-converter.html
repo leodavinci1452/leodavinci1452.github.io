@@ -382,17 +382,69 @@
             background: #3498db;
             color: white;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 25px;
+        }
+        
+        .plate-96 .well.header {
+            min-width: 30px;
+        }
+        
+        .plate-384 .well.header {
+            min-width: 25px;
+        }
+        
+        .plate-1536 .well.header {
+            min-width: 20px;
+            font-size: 7px;
         }
         
         .well.row-header {
             background: #e74c3c;
             color: white;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 25px;
+        }
+        
+        .plate-96 .well.row-header {
+            min-width: 30px;
+        }
+        
+        .plate-384 .well.row-header {
+            min-width: 25px;
+        }
+        
+        .plate-1536 .well.row-header {
+            min-width: 20px;
+            font-size: 7px;
         }
         
         .well.data {
             background: white;
             border: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 25px;
+            word-break: break-all;
+            overflow: hidden;
+        }
+        
+        .plate-96 .well.data {
+            min-width: 30px;
+        }
+        
+        .plate-384 .well.data {
+            min-width: 25px;
+        }
+        
+        .plate-1536 .well.data {
+            min-width: 20px;
         }
         
         .well.data.has-value {
@@ -628,7 +680,7 @@
             
             <div id="plateView">
                 <div class="info-box">
-                    <strong>Plate Layout:</strong> Visual representation of your 384-well plate data
+                    <strong>Plate Layout:</strong> <span id="plateInfoText">Visual representation of your 384-well plate data</span>
                 </div>
                 <div id="plateGrid" class="plate-grid"></div>
             </div>
@@ -1435,6 +1487,10 @@
         function updatePlateView() {
             const grid = document.getElementById('plateGrid');
             const config = plateConfigs[currentPlateType];
+            
+            // Update the info text to reflect current plate type
+            const plateInfoText = document.getElementById('plateInfoText');
+            plateInfoText.textContent = `Visual representation of your ${currentPlateType}-well plate data (${config.rows}×${config.cols})`;
             
             grid.innerHTML = '';
             grid.className = `plate-grid plate-${currentPlateType}`;
