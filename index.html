@@ -109,6 +109,24 @@
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
+        .nav-section {
+            margin-bottom: 30px;
+        }
+        
+        .nav-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
         .section {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -328,6 +346,15 @@
                 justify-content: center;
             }
             
+            .nav-container {
+                gap: 10px;
+            }
+            
+            .nav-item {
+                min-width: 100px;
+                padding: 12px 15px;
+            }
+            
             table {
                 font-size: 0.9rem;
             }
@@ -407,6 +434,15 @@
                 <span class="skill-tag">Data Science</span>
             </div>
         </header>
+
+        <nav class="nav-section">
+            <div class="nav-container">
+                <div class="certifications-link">
+                    <p>Explore my collection of practical web applications for scientific workflows.</p>
+                    <a href="lab-tools.html" class="cert-button">🧪 View Laboratory Tools →</a>
+                </div>
+            </div>
+        </nav>
 
         <section class="section">
             <h2>Professional Experience</h2>
